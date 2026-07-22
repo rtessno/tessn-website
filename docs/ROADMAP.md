@@ -47,19 +47,30 @@ Remaining:
 
 ## Milestone 2 — Real product visuals
 
-Status: **Queued — tracked by issue #3**
+Status: **Evidence gate in progress — tracked by issue #3**
 
-1. Create a synthetic demonstration case in Current.
-2. Capture polished screenshots of:
+Completed website-side foundation:
+
+1. Confirmed the Current repository has an active synthetic demonstration data policy and seed corpus.
+2. Confirmed no accepted public screenshot set or authoritative visual baseline was identified at the observed Current `main` revision.
+3. Defined the public screenshot acceptance and rejection rules in `docs/PRODUCT-VISUAL-EVIDENCE.md`.
+4. Added a required sidecar manifest template for source revision, fixture, viewport, supported claims, review, sanitization, and image digest.
+5. Added `scripts/validate_product_visuals.py` and connected it to the pull-request validation workflow.
+
+Remaining:
+
+1. Freeze an exact Current candidate SHA.
+2. Run Current with a synthetic demonstration case.
+3. Capture polished screenshots of:
    - case overview
    - evidence workspace
-   - deterministic findings
-   - timeline
-   - engineering handoff
-   - Publisher/Gateway knowledge outcome
-3. Sanitize and review every image.
-4. Add screenshot components and descriptive alternative text.
-5. Replace conceptual evidence cards where real visuals communicate better.
+   - deterministic findings or timeline
+   - optional engineering handoff
+   - optional Publisher/Gateway knowledge outcome
+4. Complete one approved manifest per image.
+5. Integrate at least three approved images with descriptive alternative text and factual captions.
+6. Review mobile and desktop presentation.
+7. Update claims governance, handoff, roadmap, and issue #3 after integration.
 
 ## Milestone 3 — Pilot conversion path
 
