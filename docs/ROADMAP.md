@@ -47,15 +47,16 @@ Remaining:
 
 ## Milestone 2 — Real product visuals
 
-Status: **Evidence gate in progress — tracked by issue #3**
+Status: **Evidence gate complete; capture and integration pending — tracked by issue #3**
 
-Completed website-side foundation:
+Completed website-side foundation through PR #10:
 
 1. Confirmed the Current repository has an active synthetic demonstration data policy and seed corpus.
 2. Confirmed no accepted public screenshot set or authoritative visual baseline was identified at the observed Current `main` revision.
 3. Defined the public screenshot acceptance and rejection rules in `docs/PRODUCT-VISUAL-EVIDENCE.md`.
 4. Added a required sidecar manifest template for source revision, fixture, viewport, supported claims, review, sanitization, and image digest.
 5. Added `scripts/validate_product_visuals.py` and connected it to the pull-request validation workflow.
+6. Added unit tests for approved, draft, digest-mismatch, incomplete-sanitization, and non-public fixture cases.
 
 Remaining:
 
