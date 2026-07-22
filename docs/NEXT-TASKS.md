@@ -1,40 +1,45 @@
 # Ordered Next Tasks
 
-## Completed — Foundation
+## Completed — Foundation and deployment readiness
 
-- PR #1 merged to `main`.
-- Static website, deployment workflow, governance documents, roadmap, backlog, and handoff are present.
-- Follow-on work is organized as GitHub issues.
+- PR #1 merged the static website foundation to `main`.
+- PR #7 added static validation, repaired nested 404 behavior, and fixed navigation accessibility metadata.
+- PR #8 added post-deployment HTTP verification and marker-based reporting to issue #2.
+- The repository is public, contains only presentation source and governance documentation, and keeps downloads disabled.
 
 ## Task 1 — Activate and verify Pages
 
-Tracking: issue #2 and PR #7
+Tracking: issue #2
 
-Completed on PR #7:
+Completed:
 
-- Verified the repository is public and contains only public presentation source and governance documentation.
 - Confirmed the deploy workflow uploads only `site/`.
-- Added automated validation for required routes, internal references, assets, preview indexing controls, navigation labels, and prohibited installer links.
-- Fixed nested 404 behavior for the `/tessn-website/` project Pages path.
-- Added missing navigation accessibility metadata to Privacy and Terms.
-- Passed the pull-request validation workflow.
+- Validated required routes, internal references, assets, preview indexing controls, navigation labels, and prohibited installer links.
+- Triggered deployment from `main`.
+- Captured run `29889297595` and confirmed failure at **Configure Pages** before artifact upload.
+- Added automatic deployed-site verification that updates issue #2 after every Pages deployment while the issue is open.
 
-Remaining:
+Manual blocker:
 
-- Settings → Pages → Source: GitHub Actions.
-- Merge PR #7 and observe the `main` validation and deployment workflows.
-- Verify `https://rtessno.github.io/tessn-website/` over HTTP.
-- Test `/`, `/current/`, `/pilot/`, `/about/`, `/privacy/`, `/terms/`, assets, mobile navigation, and nested 404 behavior.
-- Update README and HANDOFF with the verified deployment result.
-- Close issue #2 only after the deployed checks pass.
+- Settings → Pages → Source: **GitHub Actions**.
+
+After the setting changes:
+
+- Rerun `Deploy GitHub Pages`, or push a commit to `main`.
+- Confirm the issue #2 report passes for `https://rtessno.github.io/tessn-website/`.
+- Inspect `/`, `/current/`, `/pilot/`, `/about/`, `/privacy/`, `/terms/`, assets, mobile navigation, and nested 404 behavior.
+- Update README and HANDOFF with the verified result.
+- Close issue #2.
 
 ## Task 2 — Add real product evidence
 
 Tracking: issue #3
 
-- Produce a synthetic Current demonstration case.
-- Capture at least three polished screenshots.
-- Sanitize and review.
+- Select an exact Current candidate revision.
+- Produce a synthetic demonstration case.
+- Capture at least three polished screenshots from the implemented product.
+- Record revision, fixture, viewport, and capture metadata.
+- Sanitize and review every image.
 - Add alt text and captions.
 - Confirm visuals support rather than overstate claims.
 
