@@ -8,14 +8,15 @@ The website is deployment-ready, but GitHub Pages is not yet activated in reposi
 
 Deployment readiness includes:
 
-- dependency-free static route, asset, accessibility-metadata, preview-indexing, 404-path, pilot-safety, trust-boundary, and no-download validation
+- dependency-free route, asset, accessibility-metadata, preview-indexing, 404-path, pilot-safety, trust-boundary, and no-download validation
+- static quality checks for document landmarks, skip-link targets, heading order, image alternative text, external asset hosts, and asset budgets
 - post-deployment HTTP verification for every public route and required asset
 - marker-based deployment reporting on issue #2
 - Current product screenshot evidence validation
 - controlled pilot-intake architecture without direct website collection
 - fail-closed preview and launch metadata validation
 
-The latest `main` deployment rerun `29889952423` failed at **Configure Pages** before the artifact-upload step. The remaining activation step is manual because it changes a repository setting not exposed through the connected GitHub tool:
+The latest `main` deployment run `29891467285` failed at **Configure Pages** before the artifact-upload step. The remaining activation step is manual because it changes a repository setting not exposed through the connected GitHub tool:
 
 1. Open **Settings → Pages**.
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
@@ -81,11 +82,12 @@ Then open `http://localhost:8000`.
 ```bash
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 scripts/validate_site.py
+python3 scripts/validate_quality.py
 python3 scripts/validate_product_visuals.py
 python3 scripts/validate_launch_state.py
 ```
 
-The validators check required routes and assets, internal references, preview indexing controls, primary-navigation labels, pilot-intake safety copy, trust-page boundaries, the prohibition on publishing installer links, evidence manifests for any public Current screenshots, and the preview/launch metadata state.
+The validators check required routes and assets, internal references, preview indexing controls, primary-navigation labels, pilot-intake safety copy, trust-page boundaries, the prohibition on publishing installer links, document landmarks, skip-link targets, heading order, image alternative text, unexpected external asset hosts, asset budgets, evidence manifests for public Current screenshots, and the preview/launch metadata state.
 
 Every image under `site/assets/images/current/` must have an approved same-stem JSON manifest with an exact Current source commit, fixture identity, viewport, sanitization review, supported claims, reviewer, alt text, caption, and matching SHA-256. See `docs/PRODUCT-VISUAL-EVIDENCE.md`.
 
@@ -96,6 +98,7 @@ After a successful Pages deployment, `.github/workflows/verify-pages.yml` checks
 - `site/` — deployable public website
 - `site/trust/` — trust, deployment, and public-claim boundaries
 - `scripts/validate_site.py` — dependency-free pre-deployment, intake-safety, and trust validation
+- `scripts/validate_quality.py` — static accessibility, asset-budget, and external-request validation
 - `scripts/validate_product_visuals.py` — Current screenshot evidence validation
 - `scripts/validate_launch_state.py` — preview and launch metadata validation
 - `scripts/verify_deployed_site.py` — deployed HTTP verification
