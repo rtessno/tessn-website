@@ -15,6 +15,7 @@ EXPECTED_FILES = {
     "current/index.html",
     "pilot/index.html",
     "about/index.html",
+    "trust/index.html",
     "privacy/index.html",
     "terms/index.html",
     "assets/css/site.css",
@@ -149,6 +150,27 @@ def validate_pilot_boundary() -> list[str]:
     return errors
 
 
+def validate_trust_boundary() -> list[str]:
+    errors: list[str] = []
+    trust_path = SITE_ROOT / "trust/index.html"
+    if not trust_path.exists():
+        return errors
+
+    trust = trust_path.read_text(encoding="utf-8")
+    required = (
+        "No certification claim",
+        "No outcome guarantee",
+        "Tessn is an umbrella brand",
+        "not a security assessment",
+        "Initial outreach must not include",
+    )
+    for text in required:
+        if text not in trust:
+            errors.append(f"trust/index.html: missing required boundary text {text!r}")
+
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
 
@@ -167,6 +189,7 @@ def main() -> int:
         errors.extend(validate_page(page))
 
     errors.extend(validate_pilot_boundary())
+    errors.extend(validate_trust_boundary())
 
     robots = SITE_ROOT / "robots.txt"
     if robots.exists() and "Disallow: /" not in robots.read_text(encoding="utf-8"):
