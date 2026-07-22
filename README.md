@@ -4,7 +4,17 @@ Public-facing website repository for **Tessn**, the umbrella brand behind Curren
 
 ## Status
 
-Initial presentation-site foundation. The repository contains a dependency-free static website, GitHub Pages deployment workflow, project documentation, and a continuation handoff for a dedicated ChatGPT project.
+GitHub Pages preview activation is in progress. The repository contains a dependency-free static website, Pages deployment and validation workflows, project documentation, and a continuation handoff.
+
+Static route, asset, accessibility-metadata, preview-indexing, 404-path, and no-download checks were added and passed on pull request #7. The remaining deployment gate is to confirm **Settings → Pages → Source: GitHub Actions**, observe the `main` deployment, and verify the public preview over HTTP.
+
+Expected project Pages URL:
+
+```text
+https://rtessno.github.io/tessn-website/
+```
+
+The preview remains `noindex,nofollow` and must not be treated as a launch-ready public site until the deployed URL is verified and the remaining launch gates are complete.
 
 ## Primary product
 
@@ -18,10 +28,20 @@ python3 -m http.server 8000 --directory site
 
 Then open `http://localhost:8000`.
 
+## Validation
+
+```bash
+python3 scripts/validate_site.py
+```
+
+The validator checks required routes and assets, internal references, preview indexing controls, primary-navigation labels, and the prohibition on publishing installer links.
+
 ## Repository map
 
 - `site/` — deployable public website
+- `scripts/validate_site.py` — dependency-free deployment-readiness validation
 - `.github/workflows/deploy-pages.yml` — GitHub Pages deployment
+- `.github/workflows/validate-site.yml` — pull-request and `main` validation gate
 - `docs/PROJECT-CONTEXT.md` — durable business and product context
 - `docs/ROADMAP.md` — ordered implementation roadmap
 - `docs/HANDOFF.md` — current-state handoff
