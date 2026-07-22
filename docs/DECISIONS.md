@@ -29,3 +29,15 @@
 **Decision:** Add page-level noindex directives and disallow crawling in `robots.txt`.
 
 **Reason:** Contact, legal, naming, domain, screenshots, and claims require review before public discovery.
+
+## 2026-07-21 — Retain public repository visibility for the GitHub Pages preview
+
+**Decision:** Keep `rtessno/tessn-website` public during the current GitHub Pages preview phase.
+
+**Reason:** GitHub Pages is available from public repositories on GitHub Free, while private-repository Pages requires an eligible paid plan. The repository is intentionally limited to public presentation source and governance documentation and must not contain private Current source, customer evidence, credentials, installers, or other sensitive material. Revisit repository visibility if the hosting plan or deployment architecture changes.
+
+## 2026-07-21 — Gate Pages deployment with dependency-free validation
+
+**Decision:** Validate the static site on pull requests and pushes to `main` using `scripts/validate_site.py` and `.github/workflows/validate-site.yml`.
+
+**Reason:** The site has no build system, but deployment still requires repeatable checks for required routes, broken internal references, accessibility metadata, preview indexing controls, and accidental installer links. A standard-library validator preserves the dependency-free architecture.
