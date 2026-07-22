@@ -17,6 +17,21 @@ Verified preview: `https://rtessno.github.io/tessn-website/`
 
 Issue #2 is closed. Browser-dependent inspection continues through issue #16.
 
+## P1 — Current product narrative and evidence
+
+- [x] Audit reusable website material across the portfolio through `software-portfolio#9`.
+- [x] Select exact Current source revision `4643c749f021c3ebf67075964f8fd5804e62c7e1`.
+- [x] Review the authoritative Current README, CLI site, and documentation-site source paths.
+- [x] Add a machine-readable product claim manifest.
+- [x] Validate maturity, availability, product surfaces, deployment models, limitations, and prohibited claims.
+- [x] Add Web, CLI, Desktop development-preview, Docker Compose, and Kubernetes/Helm sections.
+- [x] Keep public downloads disabled and Desktop bounded to a separately running Current Server.
+- [x] Document exact-source review and refresh rules.
+- [ ] Verify and approve a public documentation URL before linking it from the product page.
+- [ ] Decide whether Ouli and PhrasePilot should later receive restrained portfolio pages.
+
+Primary tracking issue: #20. Implementation: PR #21.
+
 ## P1 — Presentation quality
 
 - [x] Define the Current screenshot evidence and publication gate.

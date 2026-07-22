@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "product": "Current",
+  "source_repository": "rtessno/support-copilot",
+  "source_commit": "4643c749f021c3ebf67075964f8fd5804e62c7e1",
+  "reviewed_on": "2026-07-22",
+  "reviewed_by": "rtessno",
+  "maturity": "beta",
+  "availability": "private-preview",
+  "public_downloads": false,
+  "public_safety": "public-safe-with-caveats",
+  "source_paths": [
+    "README.md",
+    "cli-site/README.md",
+    "cli-site/src/pages/index.astro",
+    "docs-site/README.md"
+  ],
+  "surfaces": [
+    {
+      "id": "web",
+      "status": "implemented",
+      "label": "Authenticated web workspace",
+      "claims": [
+        "Current provides an authenticated web investigation console backed by FastAPI, PostgreSQL, workers, and deterministic analyzers.",
+        "The web surface supports visual investigation, collaboration, administration, and review."
+      ]
+    },
+    {
+      "id": "cli",
+      "status": "implemented",
+      "label": "Current CLI",
+      "claims": [
+        "The CLI supports investigation creation, evidence intake, deterministic findings, ticket-linked workflows, exports, and script-friendly JSON output.",
+        "The CLI connects to a reachable Current Server and is intended for terminal intake, automation, SSH-hosted operations, and fast investigation work."
+      ]
+    },
+    {
+      "id": "desktop",
+      "status": "development-preview",
+      "label": "Current Desktop",
+      "claims": [
+        "Current Desktop is a Tauri development preview that reuses the web frontend.",
+        "The desktop preview requires a separately running Current Server and does not bundle the backend, database, Redis, workers, or analyzers."
+      ]
+    }
+  ],
+  "deployment_models": [
+    {
+      "id": "docker-compose",
+      "status": "implemented",
+      "label": "Docker Compose",
+      "claim": "Current includes development and production-style Docker Compose paths for the multi-service application."
+    },
+    {
+      "id": "kubernetes-helm",
+      "status": "implemented",
+      "label": "Kubernetes with Helm",
+      "claim": "Current includes Helm-based Kubernetes packaging and operator documentation."
+    }
+  ],
+  "trust_boundaries": [
+    "Deterministic analyzers produce structured findings; optional language-model behavior explains stored results.",
+    "CLI authentication uses scoped tokens and supports OS keychain storage rather than placing passwords in shell commands.",
+    "TLS verification, proxy, and custom certificate-authority controls are configuration-specific operator concerns.",
+    "Deployment, access, retention, integrations, external AI use, and support must be evaluated for the exact pilot configuration."
+  ],
+  "limitations": [
+    "Current is presented as a private beta and design-partner product, not general-availability software.",
+    "Current is a multi-service self-hosted system that requires operator configuration.",
+    "Current Desktop is a development preview rather than a standalone packaged desktop product.",
+    "No public installer or portfolio download has passed the Tessn release gate."
+  ],
+  "prohibited_claims": [
+    "general availability",
+    "guaranteed diagnosis",
+    "certification or compliance",
+    "uptime or support service levels",
+    "measured customer outcomes",
+    "approved public installer"
+  ]
+}

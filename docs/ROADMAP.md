@@ -38,6 +38,28 @@ Completed:
 
 The deployed preview remains `noindex,nofollow` and is not launch-approved.
 
+## Milestone 1A — Current product surfaces and claim provenance
+
+Status: **Implementation complete through PR #21 — tracked by issue #20**
+
+Completed:
+
+1. Audited cross-repository website material through `rtessno/software-portfolio#9`.
+2. Selected exact authoritative Current revision `4643c749f021c3ebf67075964f8fd5804e62c7e1`.
+3. Reviewed `README.md`, `cli-site/README.md`, `cli-site/src/pages/index.astro`, and `docs-site/README.md`.
+4. Added `docs/product-claims/current.json` with maturity, availability, surfaces, deployment models, trust boundaries, limitations, and prohibited claims.
+5. Added `scripts/validate_product_claims.py` and positive/negative unit tests.
+6. Enforced claim validation in `.github/workflows/validate-site.yml`.
+7. Refreshed the Current page with explicit Web, CLI, Desktop development-preview, Docker Compose, and Kubernetes/Helm sections.
+8. Added `docs/CURRENT-SOURCE-REVIEW.md` and expanded content-governance rules.
+9. Preserved private-beta, no-download, no-certification, no-outcome-guarantee, and configuration-specific trust boundaries.
+
+Continuation rule:
+
+- Later Current claims require a new exact source commit, source-path review, manifest update, visible limitation review, and CI validation.
+- Product visuals remain separately governed through issue #3 and `support-copilot#1873`.
+- Public documentation links remain excluded until their deployed URL and publication state are separately verified.
+
 ## Milestone 2 — Real product visuals
 
 Status: **Evidence gate complete; capture and integration pending — tracked by issue #3**
@@ -125,6 +147,7 @@ Completed website-side foundation:
 6. Added `scripts/validate_quality.py` and unit tests for document language, main/footer landmarks, skip-link targets, heading order, image alternative text, unexpected external asset hosts, and asset budgets.
 7. Enforced the static-quality gate in `.github/workflows/validate-site.yml`.
 8. Verified all deployed routes and required assets over HTTP.
+9. Added exact-source product-claim validation for maturity, availability, surfaces, deployments, limitations, and prohibited claims.
 
 Active browser-dependent work through issue #16:
 
