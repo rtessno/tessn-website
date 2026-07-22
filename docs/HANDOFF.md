@@ -10,21 +10,22 @@ July 21, 2026
 
 ## Current state
 
-The website foundation, deployment-readiness controls, and verified Pages-blocker documentation are merged to `main`. Product visual evidence governance is being added on branch `agent/product-visual-evidence-gate`.
+The website foundation, deployment-readiness controls, verified Pages-blocker documentation, and Current product visual evidence gate are merged to `main`.
 
 Key merges:
 
 ```text
-PR #1  — foundation
-PR #7  — static deployment validation and route/accessibility fixes
-PR #8  — post-deployment HTTP verification and issue reporting
-PR #9  — verified Pages activation blocker documentation
+PR #1   — foundation
+PR #7   — static deployment validation and route/accessibility fixes
+PR #8   — post-deployment HTTP verification and issue reporting
+PR #9   — verified Pages activation blocker documentation
+PR #10  — Current product visual evidence gate
 ```
 
-Current `main` commit after PR #9:
+Current `main` commit after PR #10:
 
 ```text
-6bd55bd6cea973d368d9ef663310e36a0c061c3b
+dc2b89d0b34e62ece9bb608ac4fad7edef146103
 ```
 
 The repository contains:
@@ -37,10 +38,11 @@ The repository contains:
 - dependency-free HTML, CSS, JavaScript, SVG, and Python verification helpers
 - accessible mobile navigation and visible keyboard focus
 - GitHub Pages deployment workflow
-- pre-deployment static validation workflow
+- pre-deployment static and product-visual validation workflow
 - post-deployment HTTP verification workflow
 - preview noindex controls
 - security and contribution policies
+- product visual evidence governance and manifest template
 - project context, architecture, claims governance, release integration, decisions, roadmap, backlog, and continuation instructions
 
 ## Completed deployment-readiness controls
@@ -87,7 +89,7 @@ https://rtessno.github.io/tessn-website/
 
 ## Product visual evidence milestone
 
-Issue #3 has advanced through a website-side evidence gate without publishing unreviewed images.
+Issue #3 has advanced through a completed website-side evidence gate without publishing unreviewed images.
 
 Verified source context:
 
@@ -97,13 +99,14 @@ Verified source context:
 - the Current visual capture protocol states that no screenshot or visual baseline is accepted by that document
 - no accepted public screenshot set was identified
 
-The active product-visual branch adds:
+PR #10 added:
 
 - `docs/PRODUCT-VISUAL-EVIDENCE.md`
 - `docs/product-visuals/MANIFEST-TEMPLATE.json`
 - `scripts/validate_product_visuals.py`
-- required source revision, fixture, viewport, claims, sanitization, reviewer, approval, and SHA-256 metadata
-- validation in `.github/workflows/validate-site.yml`
+- unit tests covering approved, draft, digest-mismatch, incomplete-sanitization, and non-public fixture cases
+- required source revision, fixture, viewport, claims, sanitization, reviewer, approval, alt-text, caption, and SHA-256 metadata
+- enforcement in `.github/workflows/validate-site.yml`
 
 No product screenshot has been published. The next visual step requires running an exact Current revision with synthetic data, capturing at least three product surfaces, completing one approved manifest per image, and integrating only images that pass the gate.
 
@@ -123,7 +126,7 @@ No product screenshot has been published. The next visual step requires running 
 ### Tessn website
 
 - #2 — P0: Activate and verify GitHub Pages deployment — **blocked only on Settings → Pages → GitHub Actions**
-- #3 — P1: Add sanitized Current product screenshots — **evidence gate in progress; captures not yet accepted**
+- #3 — P1: Add sanitized Current product screenshots — **evidence gate complete; captures not yet accepted**
 - #4 — P1: Establish pilot contact and privacy-reviewed intake
 - #5 — P1: Complete naming, domain, and launch metadata
 
@@ -137,6 +140,7 @@ No product screenshot has been published. The next visual step requires running 
 git clone https://github.com/rtessno/tessn-website.git
 cd tessn-website
 python3 -m http.server 8000 --directory site
+python3 -m unittest discover -s tests -p 'test_*.py'
 python3 scripts/validate_site.py
 python3 scripts/validate_product_visuals.py
 ```
