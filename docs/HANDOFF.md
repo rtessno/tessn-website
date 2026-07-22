@@ -12,7 +12,7 @@ July 21, 2026
 
 The website foundation, deployment-readiness controls, verified Pages-blocker documentation, and Current product visual evidence gate are merged to `main`.
 
-Key merges:
+Milestone merges:
 
 ```text
 PR #1   — foundation
@@ -20,13 +20,10 @@ PR #7   — static deployment validation and route/accessibility fixes
 PR #8   — post-deployment HTTP verification and issue reporting
 PR #9   — verified Pages activation blocker documentation
 PR #10  — Current product visual evidence gate
+PR #11  — product visual milestone handoff and roadmap closeout
 ```
 
-Current `main` commit after PR #10:
-
-```text
-dc2b89d0b34e62ece9bb608ac4fad7edef146103
-```
+Use the repository `main` ref as the source of truth rather than copying a commit SHA into this document; updating the handoff itself changes that SHA.
 
 The repository contains:
 
