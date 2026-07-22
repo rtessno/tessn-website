@@ -4,32 +4,25 @@ Public-facing website repository for **Tessn**, the umbrella brand behind Curren
 
 ## Status
 
-The website is deployment-ready, but GitHub Pages is not yet activated in repository settings.
-
-Deployment readiness includes:
-
-- dependency-free route, asset, accessibility-metadata, preview-indexing, 404-path, pilot-safety, trust-boundary, and no-download validation
-- static quality checks for document landmarks, skip-link targets, heading order, image alternative text, external asset hosts, and asset budgets
-- post-deployment HTTP verification for every public route and required asset
-- marker-based deployment reporting on issue #2
-- Current product screenshot evidence validation
-- controlled pilot-intake architecture without direct website collection
-- fail-closed preview and launch metadata validation
-
-The latest `main` deployment run `29891467285` failed at **Configure Pages** before the artifact-upload step. The remaining activation step is manual because it changes a repository setting not exposed through the connected GitHub tool:
-
-1. Open **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Rerun `Deploy GitHub Pages`, or push a new commit to `main`.
-4. Confirm the automated report on issue #2 passes.
-
-Expected project Pages URL, not yet verified:
+The GitHub Pages preview is live and verified:
 
 ```text
 https://rtessno.github.io/tessn-website/
 ```
 
-The preview remains `noindex,nofollow` and must not be treated as launch-ready until deployment succeeds and the remaining launch gates are complete.
+Automated post-deployment verification passes **15/15 checks**, including every public route, required CSS/JavaScript/SVG asset, preview crawler controls, pilot safety language, Trust boundaries, and nested 404 behavior. Issue #2 is closed as completed.
+
+The preview remains `noindex,nofollow` and is not launch-approved. Naming, domain, pilot contact, screenshots, legal review, and release gates remain open.
+
+Deployment and quality controls include:
+
+- dependency-free route, asset, accessibility-metadata, preview-indexing, 404-path, pilot-safety, trust-boundary, and no-download validation
+- static quality checks for document landmarks, skip-link targets, heading order, image alternative text, external asset hosts, and asset budgets
+- post-deployment HTTP verification for every public route and required asset
+- marker-based deployment reporting
+- Current product screenshot evidence validation
+- controlled pilot-intake architecture without direct website collection
+- fail-closed preview and launch metadata validation
 
 ## Primary product
 
@@ -91,7 +84,7 @@ The validators check required routes and assets, internal references, preview in
 
 Every image under `site/assets/images/current/` must have an approved same-stem JSON manifest with an exact Current source commit, fixture identity, viewport, sanitization review, supported claims, reviewer, alt text, caption, and matching SHA-256. See `docs/PRODUCT-VISUAL-EVIDENCE.md`.
 
-After a successful Pages deployment, `.github/workflows/verify-pages.yml` checks the deployed routes, assets, `robots.txt`, preview directives, trust boundaries, pilot safety copy, and nested 404 behavior and updates issue #2 with one current report.
+`.github/workflows/verify-pages.yml` checks the deployed routes, assets, `robots.txt`, preview directives, trust boundaries, pilot safety copy, and nested 404 behavior after each successful deployment.
 
 ## Repository map
 

@@ -18,7 +18,11 @@ Delivered:
 
 ## Milestone 1 — Repository and deployment activation
 
-Status: **Blocked on one manual repository setting — tracked by issue #2**
+Status: **Complete — issue #2 closed**
+
+Verified preview:
+
+`https://rtessno.github.io/tessn-website/`
 
 Completed:
 
@@ -27,22 +31,12 @@ Completed:
 3. Added pull-request and `main` validation through `.github/workflows/validate-site.yml`.
 4. Fixed the nested project Pages 404 base path.
 5. Confirmed the deployment workflow uploads only `site/`.
-6. Added post-deployment HTTP verification and marker-based reporting to issue #2.
-7. Triggered and reran `Deploy GitHub Pages` from `main`; attempts continue to fail before artifact upload.
+6. Added post-deployment HTTP verification and marker-based reporting.
+7. Activated GitHub Pages with GitHub Actions as the publishing source.
+8. Verified 15/15 deployed routes, assets, preview controls, and boundary checks.
+9. Closed issue #2 as completed.
 
-Verified blocker:
-
-- latest run `29891467285` failed in the **Configure Pages** step
-- artifact upload and deployment were skipped
-- repository **Settings → Pages → Source** must be set to **GitHub Actions**
-
-Remaining:
-
-1. Change the Pages source setting to **GitHub Actions**.
-2. Rerun `Deploy GitHub Pages`, or push a new commit to `main`.
-3. Observe the automated issue #2 report pass.
-4. Validate mobile and desktop rendering at `https://rtessno.github.io/tessn-website/`.
-5. Record the verified deployment result in README and HANDOFF, then close issue #2.
+The deployed preview remains `noindex,nofollow` and is not launch-approved.
 
 ## Milestone 2 — Real product visuals
 
@@ -104,22 +98,22 @@ Completed through PR #14:
 4. Added draft 1200×630 social-preview artwork for design review.
 5. Kept live social tags, canonical URLs, sitemap, CNAME, structured data, analytics, and indexing disabled.
 6. Preserved provisional naming and the no-LLC rule.
+7. Activated and verified the GitHub Pages project preview.
 
 Remaining:
 
 1. Complete umbrella-brand and product-name screening.
 2. Select and acquire the public domain.
-3. Activate and verify GitHub Pages.
-4. Configure DNS, Pages custom domain, and HTTPS.
-5. Generate and review a platform-ready social preview raster.
-6. Transition the manifest to `launch_candidate` while keeping indexing disabled.
-7. Add canonical, Open Graph, social, sitemap, and accurate structured metadata.
-8. Complete content, privacy, terms, accessibility, and launch review.
-9. Transition to `launched` and remove noindex only through an explicit reviewed change.
+3. Configure DNS, Pages custom domain, and HTTPS.
+4. Generate and review a platform-ready social preview raster.
+5. Transition the manifest to `launch_candidate` while keeping indexing disabled.
+6. Add canonical, Open Graph, social, sitemap, and accurate structured metadata.
+7. Complete content, privacy, terms, accessibility, and launch review.
+8. Transition to `launched` and remove noindex only through an explicit reviewed change.
 
 ## Milestone 5 — Launch-quality trust and static quality
 
-Status: **Website-side foundation complete; deployed browser review remains blocked on Pages**
+Status: **Static foundation complete; deployed browser review active through issue #16**
 
 Completed website-side foundation:
 
@@ -130,13 +124,14 @@ Completed website-side foundation:
 5. Added static and deployed-route checks for the Trust page and required boundary language.
 6. Added `scripts/validate_quality.py` and unit tests for document language, main/footer landmarks, skip-link targets, heading order, image alternative text, unexpected external asset hosts, and asset budgets.
 7. Enforced the static-quality gate in `.github/workflows/validate-site.yml`.
+8. Verified all deployed routes and required assets over HTTP.
 
-Remaining browser-dependent work through issue #16:
+Active browser-dependent work through issue #16:
 
 1. Review typography and spacing on iPhone, tablet, compact desktop, wide desktop, and at 200% zoom.
 2. Complete keyboard-only and screen-reader review.
 3. Review contrast and reduced-motion behavior.
-4. Complete deployed performance, caching, console, third-party request, and broken-link checks.
+4. Complete deployed performance, caching, console, third-party request, and browser broken-link checks.
 5. Obtain appropriate legal review for Privacy and Terms.
 6. Add deployment-specific controls only when demonstrated for the exact pilot configuration.
 7. Add product architecture or edition information only when commercially settled and evidence-backed.

@@ -1,6 +1,6 @@
 # Website Backlog
 
-## P0 — Required next
+## P0 — Deployment foundation
 
 - [x] Review and merge the foundation pull request.
 - [x] Verify `tessn-website` visibility: the repository is public and contains only public presentation source and governance documentation.
@@ -8,14 +8,14 @@
 - [x] Repair the custom 404 page for nested GitHub project Pages URLs.
 - [x] Confirm the deployment workflow publishes only `site/`.
 - [x] Add post-deployment HTTP verification and issue #2 reporting.
-- [x] Trigger deployment from `main` and identify the exact blocker.
-- [ ] Set Settings → Pages → Source to **GitHub Actions**.
-- [ ] Rerun `Deploy GitHub Pages` and confirm it succeeds.
-- [ ] Confirm the issue #2 HTTP verification report passes.
-- [ ] Inspect the deployed site on iPhone, tablet, and desktop.
-- [ ] Record the verified deployed URL in README and HANDOFF.
+- [x] Activate Settings → Pages → Source as **GitHub Actions**.
+- [x] Deploy from `main`.
+- [x] Confirm the issue #2 HTTP verification report passes 15/15 checks.
+- [x] Record the verified deployed URL in README and HANDOFF.
 
-Primary tracking issue: #2. Latest run `29891467285` failed at **Configure Pages** before artifact upload because the Pages publishing source is not activated.
+Verified preview: `https://rtessno.github.io/tessn-website/`
+
+Issue #2 is closed. Browser-dependent inspection continues through issue #16.
 
 ## P1 — Presentation quality
 
@@ -28,6 +28,7 @@ Primary tracking issue: #2. Latest run `29891467285` failed at **Configure Pages
 - [x] Add static and deployed-route validation for trust boundaries.
 - [x] Add static checks for document language, landmarks, skip links, heading order, image alt attributes, unexpected external asset hosts, and asset budgets.
 - [x] Enforce the static-quality gate in CI.
+- [x] Verify all deployed routes and required assets over HTTP.
 - [ ] Freeze an exact Current candidate SHA for capture.
 - [ ] Capture and approve at least three synthetic Current screenshots.
 - [ ] Integrate approved screenshots with factual alt text and captions.
@@ -36,9 +37,9 @@ Primary tracking issue: #2. Latest run `29891467285` failed at **Configure Pages
 - [ ] Convert the social artwork to a reviewed platform-ready raster.
 - [ ] Verify typography and spacing on iPhone, tablet, and desktop.
 - [ ] Test keyboard-only navigation and screen-reader landmarks.
-- [ ] Complete deployed performance and broken-link review.
+- [ ] Complete browser performance, console, network, caching, and broken-link review.
 
-Primary tracking issue: #3 for product visuals and #16 for browser-dependent quality review.
+Primary tracking issue: #3 for product visuals and #16 for deployed browser quality.
 
 ## P1 — Commercial readiness
 
