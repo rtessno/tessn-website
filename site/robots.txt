@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# Preview mode. Replace with an allow policy and add a sitemap at public launch.
