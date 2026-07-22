@@ -28,6 +28,9 @@ jobs:
       - name: Validate static accessibility, asset budgets, and external-request boundaries
         run: python3 scripts/validate_quality.py
 
+      - name: Validate Current public product claims
+        run: python3 scripts/validate_product_claims.py
+
       - name: Validate Current public product visual evidence
         run: python3 scripts/validate_product_visuals.py
 
