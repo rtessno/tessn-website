@@ -15,6 +15,7 @@
 - PR #21 — revision-bound Current product surfaces and claim validation
 - Issue #2 — GitHub Pages activation and 15/15 deployed verification
 - Issue #20 — Current product surface refresh from exact authoritative source
+- Issue #22 — Current documentation-navigation audit; remain link-free until the revision-aware public-safety gate passes
 
 Verified preview:
 
@@ -28,7 +29,20 @@ Public Current capability language is pinned to:
 
 `rtessno/support-copilot@4643c749f021c3ebf67075964f8fd5804e62c7e1`
 
-The page now distinguishes Web, CLI, Desktop development-preview, Docker Compose, and Kubernetes/Helm surfaces. Later claim changes require an exact source refresh through `docs/product-claims/current.json` and `scripts/validate_product_claims.py`.
+The page distinguishes Web, CLI, Desktop development-preview, Docker Compose, and Kubernetes/Helm surfaces. Later claim changes require an exact source refresh through `docs/product-claims/current.json` and `scripts/validate_product_claims.py`.
+
+## Current documentation decision
+
+`docs/CURRENT-DOCUMENTATION-NAVIGATION.md` records the fail-closed outcome of issue #22.
+
+Tessn currently publishes no Current Docs, CLI install, release, private-repository, or raw OpenAPI link because the upstream Pages artifact:
+
+- is not stamped with an exact externally verifiable Current revision
+- merges Docs and CLI distribution-oriented navigation into one Pages artifact
+- includes installation, customer-distribution, environment-variable, operator-security, OpenAPI, GitHub, and edit-on-GitHub surfaces
+- has not passed Tessn's external-host allowlist, release-state, and rollback gates
+
+Reconsider only after the exact public artifact, routes, navigation, release consistency, safety review, and rollback behavior are verified together.
 
 ## Task 1 — Complete deployed browser quality review
 
@@ -48,6 +62,7 @@ Website-side automation completed:
 
 Remaining:
 
+- Confirm the post-PR #21 deployment contains the strengthened Current-route boundaries.
 - Inspect iPhone, tablet, compact desktop, wide desktop, and 200% zoom layouts.
 - Re-review the expanded Current page at each viewport.
 - Complete keyboard-only and screen-reader spot checks.
@@ -62,24 +77,16 @@ Remaining:
 Tracking: issue #3 and `rtessno/support-copilot` issue #1873
 
 - Freeze the exact Current candidate SHA that will be rendered.
-- Run the synthetic demonstration case.
+- Run the synthetic demonstration case locally.
 - Capture at least three polished screenshots from implemented product surfaces.
 - Complete and approve one manifest per image.
 - Integrate the images with factual alt text and captions.
 - Review the visual layout on mobile and desktop.
 - Update issue #3 and HANDOFF after integration.
 
-## Task 3 — Verify public Current documentation navigation
+This task requires a locally rendered Current instance and cannot be completed through repository-only GitHub actions.
 
-Tracking: issue #20 follow-up or a focused documentation issue
-
-- Verify the deployed Current documentation URL and route stability.
-- Confirm its published content is public-safe and aligned with the exact Current source revision.
-- Decide whether Tessn should link to the documentation site or publish curated snapshots.
-- Allowlist the external host only through an explicit validator change.
-- Keep engineering-only and private repository links out of the public website.
-
-## Task 4 — Activate the pilot contact path
+## Task 3 — Activate the pilot contact path
 
 Tracking: issue #4
 
@@ -92,7 +99,7 @@ Tracking: issue #4
 - Re-review the privacy notice and test mobile and desktop behavior.
 - Close issue #4.
 
-## Task 5 — Complete naming, domain, and launch metadata
+## Task 4 — Complete naming, domain, and launch metadata
 
 Tracking: issue #5
 
@@ -116,21 +123,32 @@ Remaining:
 - Complete content, privacy, terms, accessibility, and launch review.
 - Transition to `launched` and remove noindex only through an explicit reviewed change.
 
-## Task 6 — Release repository readiness
+## Task 5 — Release repository readiness
 
 Tracking: `rtessno/current-release` issue #1
 
-- Add release governance and documentation.
-- Define supported platforms.
-- Define signing, checksums, SBOM, licensing, support, and access model.
-- Keep direct downloads disabled until the gate is satisfied.
+Current blocker:
 
-## Task 7 — Decide portfolio breadth
+- `current-release` is empty and has no root Git commit.
+- Create the initial README commit on `main`; the connected contents interface cannot create the first commit in an empty repository.
 
-Tracking: `rtessno/software-portfolio#9`
+After bootstrap:
 
-- Keep Current as the primary conversion path for the current preview.
-- Decide whether a restrained product directory belongs on Tessn.
+- Build the release-governance foundation through a feature branch and pull request.
+- Define supported platforms without guessing.
+- Define release states, immutable artifact records, signing, notarization, checksums, malware scanning, SBOMs, licensing, support, access, withdrawal, upgrade, and rollback.
+- Add fail-closed validation and tests.
+- Keep direct downloads disabled until an exact artifact passes every gate.
+
+## Task 6 — Decide website responsibilities and portfolio breadth
+
+Tracking: `rtessno/software-portfolio#9` and `#10`
+
+- Confirm Tessn as the umbrella, product directory, pilot entry, and umbrella trust/legal site.
+- Confirm `support-copilot/website` as the eventual authoritative detailed Current marketing and evaluation site after deployment approval.
+- Keep Current Docs and CLI sites authoritative for technical learning after public-safety verification.
+- Retain `portfolio-web` as a governance and migration source rather than a competing production website.
+- Keep Current as the primary conversion path for the present preview.
 - Revalidate Ouli and PhrasePilot against current exact revisions before public pages.
 - Treat I Love Me and Travel Buddy as later Labs candidates.
 - Reuse Oulifit governance patterns internally without importing unrelated storefront positioning.
