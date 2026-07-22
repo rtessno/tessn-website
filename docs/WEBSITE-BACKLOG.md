@@ -14,16 +14,15 @@
 - [ ] Confirm the issue #2 HTTP verification report passes.
 - [ ] Inspect the deployed site on iPhone, tablet, and desktop.
 - [ ] Record the verified deployed URL in README and HANDOFF.
-- [ ] Select pilot contact channel.
-- [ ] Replace temporary GitHub-profile CTA.
 
-Primary tracking issue: #2. Run `29889297595` failed at **Configure Pages** before artifact upload because the Pages publishing source is not activated.
+Primary tracking issue: #2. Latest rerun `29889952423` failed at **Configure Pages** before artifact upload because the Pages publishing source is not activated.
 
 ## P1 — Presentation quality
 
 - [x] Define the Current screenshot evidence and publication gate.
 - [x] Add a mandatory screenshot sidecar manifest template.
 - [x] Add automated validation for source revision, fixture mode, sanitization, review status, claims, and image digest.
+- [x] Open `rtessno/support-copilot` issue #1873 for the exact-revision synthetic capture handoff.
 - [ ] Freeze an exact Current candidate SHA for capture.
 - [ ] Capture and approve at least three synthetic Current screenshots.
 - [ ] Integrate approved screenshots with factual alt text and captions.
@@ -38,15 +37,21 @@ Primary tracking issue: #3. No accepted public screenshot set was identified at 
 
 ## P1 — Commercial readiness
 
-- [ ] Finalize brand naming screen.
-- [ ] Select and configure custom domain.
-- [ ] Define design-partner qualification.
+- [x] Select a dedicated business email as the initial pilot-interest channel architecture.
+- [x] Define design-partner qualification questions.
+- [x] Define initial intake data boundaries and handling baseline.
+- [x] Update the pilot and privacy pages before collecting information.
+- [x] Remove the temporary GitHub-profile CTA.
+- [x] Explicitly prohibit sensitive evidence and credentials in first contact.
+- [ ] Create and secure the dedicated business mailbox.
+- [ ] Select and operationalize a retention process.
+- [ ] Publish and test the dedicated address.
 - [ ] Draft pilot agreement requirements.
 - [ ] Define pricing hypothesis without publishing it prematurely.
-- [ ] Establish a dedicated business contact.
-- [ ] Update privacy handling before collecting pilot information.
+- [ ] Finalize brand naming screen.
+- [ ] Select and configure custom domain.
 
-Primary tracking issues: #4 and #5.
+Primary tracking issues: #4 and #5. Issue #4 remains open until one tested public contact action exists.
 
 ## P2 — Release integration
 
