@@ -40,7 +40,7 @@ The deployed preview remains `noindex,nofollow` and is not launch-approved.
 
 ## Milestone 1A — Current product surfaces and claim provenance
 
-Status: **Implementation complete through PR #21 — tracked by issue #20**
+Status: **Complete through PR #21 and issue #20**
 
 Completed:
 
@@ -58,7 +58,32 @@ Continuation rule:
 
 - Later Current claims require a new exact source commit, source-path review, manifest update, visible limitation review, and CI validation.
 - Product visuals remain separately governed through issue #3 and `support-copilot#1873`.
-- Public documentation links remain excluded until their deployed URL and publication state are separately verified.
+
+## Milestone 1B — Current documentation navigation
+
+Status: **Audit complete; link-free decision recorded through issue #22**
+
+Completed:
+
+1. Reviewed the upstream Docs and CLI Pages workflow and source configuration.
+2. Confirmed the Pages workflow builds Docs and CLI from `main` but does not publish an exact externally verifiable source or release identity.
+3. Confirmed the documentation navigation contains installation, customer-distribution, environment-variable, operator-security, OpenAPI, GitHub, and edit-on-GitHub surfaces.
+4. Confirmed the CLI product site is merged into the same Pages artifact and includes install and release navigation.
+5. Added `docs/CURRENT-DOCUMENTATION-NAVIGATION.md`.
+6. Expanded `docs/CONTENT-AND-CLAIMS.md` with the external documentation gate.
+7. Chose to keep Tessn link-free rather than presenting a permission-dependent or distribution-oriented technical surface as a neutral public resource.
+
+Reconsideration requires:
+
+- stable public HTTPS deployment
+- exact deployed source or release identity
+- route and search verification
+- public-safe navigation independent of private repository access
+- consistency with the `current-release` state
+- visible maturity, availability, support, and release boundaries
+- explicit allowlisting, deployed verification, and rollback behavior
+
+Tessn must not fork detailed Current operator documentation. `support-copilot/docs-site` and `support-copilot/cli-site` remain authoritative.
 
 ## Milestone 2 — Real product visuals
 
@@ -151,23 +176,26 @@ Completed website-side foundation:
 
 Active browser-dependent work through issue #16:
 
-1. Review typography and spacing on iPhone, tablet, compact desktop, wide desktop, and at 200% zoom.
-2. Complete keyboard-only and screen-reader review.
-3. Review contrast and reduced-motion behavior.
-4. Complete deployed performance, caching, console, third-party request, and browser broken-link checks.
-5. Obtain appropriate legal review for Privacy and Terms.
-6. Add deployment-specific controls only when demonstrated for the exact pilot configuration.
-7. Add product architecture or edition information only when commercially settled and evidence-backed.
+1. Confirm the strengthened post-PR #21 Current-route checks against the deployed preview.
+2. Review typography and spacing on iPhone, tablet, compact desktop, wide desktop, and at 200% zoom.
+3. Complete keyboard-only and screen-reader review.
+4. Review contrast and reduced-motion behavior.
+5. Complete deployed performance, caching, console, third-party request, and browser broken-link checks.
+6. Obtain appropriate legal review for Privacy and Terms.
+7. Add deployment-specific controls only when demonstrated for the exact pilot configuration.
+8. Add product architecture or edition information only when commercially settled and evidence-backed.
 
 ## Milestone 6 — Controlled downloads
 
-Cross-repository work begins with `rtessno/current-release` issue #1.
+Status: **Blocked on one-time empty-repository bootstrap in `rtessno/current-release` issue #1**
 
-1. Harden `current-release` repository governance.
-2. Produce signed and scanned preview installers.
-3. Publish checksums, release notes, licensing, and platform requirements.
-4. Add access-controlled or public download behavior according to release strategy.
-5. Document upgrade, rollback, support, and issue reporting.
+1. Create the initial README commit on `current-release/main`.
+2. Build release governance through a feature branch and pull request.
+3. Define supported platforms and fail-closed release states.
+4. Define immutable artifact records, signing, notarization, malware scanning, checksums, SBOMs, licensing, access, support, upgrade, rollback, withdrawal, and reporting.
+5. Add validation and tests.
+6. Produce an exact reviewed preview artifact only after the governance foundation passes.
+7. Add website release status or access behavior only after explicit approval.
 
 ## Milestone 7 — Evidence-backed commercialization
 
