@@ -47,3 +47,15 @@
 **Decision:** Every Current screenshot published under `site/assets/images/current/` must include a same-stem JSON manifest with `approved_public` status and pass `scripts/validate_product_visuals.py`.
 
 **Reason:** Screenshots can expose restricted information or imply capabilities that are not implemented. Recording the exact source commit, fixture, viewport, supported claims, sanitization review, reviewer, alternative text, caption, and image digest makes each public visual traceable and prevents planned or unreviewed captures from being presented as product evidence.
+
+## 2026-07-21 — Use a dedicated business email for initial pilot interest
+
+**Decision:** The first public pilot-interest channel will be a dedicated business email address. Do not use a public GitHub profile, issue, embedded form, scheduling tool, or evidence-upload workflow as the initial intake path.
+
+**Reason:** A dedicated mailbox is the lowest-complexity controlled channel for a static preview. It avoids adding a form processor or client-side collection while allowing limited access, multi-factor authentication, tested recovery, and a documented retention practice. The address must not be published until those controls and the corresponding privacy language are in place.
+
+## 2026-07-21 — Prohibit sensitive evidence in initial pilot contact
+
+**Decision:** Initial pilot outreach may contain only basic professional contact information and a high-level workflow description. Customer evidence, tickets, logs, captures, credentials, internal URLs, proprietary source, regulated data, contracts, and pricing are prohibited until a written evidence-transfer and data-handling process exists.
+
+**Reason:** Early qualification does not require operational evidence. Separating interest intake from evidence transfer reduces accidental disclosure and prevents public or unsuitable channels from becoming an implicit customer-data workflow.

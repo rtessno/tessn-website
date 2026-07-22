@@ -18,6 +18,7 @@ EXPECTED_FILES = {
     "privacy/index.html",
     "terms/index.html",
     "assets/css/site.css",
+    "assets/css/pilot.css",
     "assets/js/site.js",
     "assets/images/current-workflow.svg",
     "assets/images/tessn-mark.svg",
@@ -124,6 +125,30 @@ def validate_page(page: Path) -> list[str]:
     return errors
 
 
+def validate_pilot_boundary() -> list[str]:
+    errors: list[str] = []
+    pilot_path = SITE_ROOT / "pilot/index.html"
+    privacy_path = SITE_ROOT / "privacy/index.html"
+    if not pilot_path.exists() or not privacy_path.exists():
+        return errors
+
+    pilot = pilot_path.read_text(encoding="utf-8")
+    privacy = privacy_path.read_text(encoding="utf-8")
+
+    if "github.com/rtessno" in pilot:
+        errors.append("pilot/index.html: public GitHub profile must not be used as pilot intake")
+    if "Do not submit customer evidence" not in pilot:
+        errors.append("pilot/index.html: missing initial-intake sensitive-evidence warning")
+    if "Dedicated email pending" not in pilot:
+        errors.append("pilot/index.html: pending contact state is not explicit")
+    if "Do not submit customer evidence" not in privacy:
+        errors.append("privacy/index.html: missing sensitive-information prohibition")
+    if "does not include an intake form" not in privacy:
+        errors.append("privacy/index.html: direct-collection behavior is not documented")
+
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
 
@@ -141,7 +166,9 @@ def main() -> int:
     for page in html_pages:
         errors.extend(validate_page(page))
 
-    robots = (SITE_ROOT / "robots.txt")
+    errors.extend(validate_pilot_boundary())
+
+    robots = SITE_ROOT / "robots.txt"
     if robots.exists() and "Disallow: /" not in robots.read_text(encoding="utf-8"):
         errors.append("robots.txt must keep preview crawling disabled")
 

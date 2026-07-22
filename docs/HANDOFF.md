@@ -10,9 +10,9 @@ July 21, 2026
 
 ## Current state
 
-The website foundation, deployment-readiness controls, verified Pages-blocker documentation, and Current product visual evidence gate are merged to `main`.
+The website foundation, deployment-readiness controls, verified Pages-blocker documentation, Current product visual evidence gate, and controlled pilot-intake foundation are implemented in repository history.
 
-Milestone merges:
+Milestone merges before this pass:
 
 ```text
 PR #1   — foundation
@@ -21,6 +21,7 @@ PR #8   — post-deployment HTTP verification and issue reporting
 PR #9   — verified Pages activation blocker documentation
 PR #10  — Current product visual evidence gate
 PR #11  — product visual milestone handoff and roadmap closeout
+PR #12  — stable HANDOFF state
 ```
 
 Use the repository `main` ref as the source of truth rather than copying a commit SHA into this document; updating the handoff itself changes that SHA.
@@ -40,28 +41,30 @@ The repository contains:
 - preview noindex controls
 - security and contribution policies
 - product visual evidence governance and manifest template
+- controlled pilot-intake architecture and qualification rules
 - project context, architecture, claims governance, release integration, decisions, roadmap, backlog, and continuation instructions
 
 ## Completed deployment-readiness controls
 
 The repository verifies:
 
-- all seven HTML pages and required assets
+- all HTML pages and required assets
 - internal routes and references
 - primary-navigation accessibility labels
 - preview `noindex` and `robots.txt` controls
 - the prohibition on public installer links
 - nested project Pages 404 behavior
+- the pilot contact-pending state and sensitive-evidence warning
 - deployed route, asset, content-type, preview-directive, and 404 responses after a successful Pages deployment
 
 Post-deployment results are written to one marker-based comment on issue #2 while that issue remains open.
 
 ## Verified Pages blocker
 
-The `Deploy GitHub Pages` run below was triggered from `main` after PR #8:
+The deployment was rerun during the continuation pass:
 
 ```text
-Run: 29889297595
+Run: 29889952423
 Job: deploy
 Failure step: Configure Pages
 Artifact upload: skipped
@@ -86,7 +89,7 @@ https://rtessno.github.io/tessn-website/
 
 ## Product visual evidence milestone
 
-Issue #3 has advanced through a completed website-side evidence gate without publishing unreviewed images.
+Issue #3 has a completed website-side evidence gate without publishing unreviewed images.
 
 Verified source context:
 
@@ -95,8 +98,9 @@ Verified source context:
 - active synthetic demonstration policy and seed corpus are present
 - the Current visual capture protocol states that no screenshot or visual baseline is accepted by that document
 - no accepted public screenshot set was identified
+- Current-side execution is tracked by `rtessno/support-copilot` issue #1873
 
-PR #10 added:
+The gate includes:
 
 - `docs/PRODUCT-VISUAL-EVIDENCE.md`
 - `docs/product-visuals/MANIFEST-TEMPLATE.json`
@@ -106,6 +110,31 @@ PR #10 added:
 - enforcement in `.github/workflows/validate-site.yml`
 
 No product screenshot has been published. The next visual step requires running an exact Current revision with synthetic data, capturing at least three product surfaces, completing one approved manifest per image, and integrating only images that pass the gate.
+
+## Pilot intake milestone
+
+Issue #4 has advanced through a controlled website-side foundation without publishing an invented address or collecting visitor information.
+
+Decisions and controls:
+
+- a dedicated business email is the selected initial contact architecture
+- the founder GitHub profile is no longer used as the pilot intake path
+- public GitHub issues, embedded forms, scheduling tools, and evidence uploads are not the initial channel
+- `docs/PILOT-INTAKE.md` defines activation, qualification, access, retention, and future-provider gates
+- the pilot page states which high-level information is appropriate for first contact
+- the pilot and privacy pages prohibit customer evidence, logs, captures, credentials, internal URLs, proprietary source, regulated information, contracts, and pricing
+- the website continues to collect no information directly
+- static validation enforces the contact-pending state and sensitive-evidence warning
+
+Remaining issue #4 blocker:
+
+1. Create the dedicated business mailbox.
+2. Configure multi-factor authentication and recovery.
+3. Select a retention process that can be followed consistently.
+4. Test sending and receiving.
+5. Approve the address for publication.
+6. Replace the pending state with one working `mailto:` action.
+7. Re-review privacy copy and test mobile and desktop behavior.
 
 ## Important guardrails
 
@@ -117,19 +146,24 @@ No product screenshot has been published. The next visual step requires running 
 6. Public claims must remain within `docs/CONTENT-AND-CLAIMS.md`.
 7. Preview indexing controls remain enabled.
 8. Product visuals require an `approved_public` manifest and exact source commit.
+9. Initial pilot intake must not become an evidence-transfer channel.
 
 ## Organized issue queue
 
 ### Tessn website
 
 - #2 — P0: Activate and verify GitHub Pages deployment — **blocked only on Settings → Pages → GitHub Actions**
-- #3 — P1: Add sanitized Current product screenshots — **evidence gate complete; captures not yet accepted**
-- #4 — P1: Establish pilot contact and privacy-reviewed intake
+- #3 — P1: Add sanitized Current product screenshots — **capture tracked by support-copilot #1873**
+- #4 — P1: Establish pilot contact and privacy-reviewed intake — **foundation complete; mailbox activation pending**
 - #5 — P1: Complete naming, domain, and launch metadata
+
+### Current product
+
+- `rtessno/support-copilot` #1873 — capture approved synthetic Current product visuals for the website
 
 ### Current release repository
 
-- `rtessno/current-release` #1 — Establish Current release governance before public downloads
+- `rtessno/current-release` #1 — establish Current release governance before public downloads
 
 ## Local preview and validation
 
@@ -148,11 +182,10 @@ Open `http://localhost:8000`.
 
 1. Perform the manual Pages source change and confirm issue #2 passes.
 2. Verify mobile and desktop rendering at the deployed URL, then close issue #2.
-3. Freeze and run an exact Current candidate revision with the synthetic corpus for issue #3.
-4. Capture, review, and integrate at least three approved Current screenshots.
-5. Choose the pilot contact method through issue #4 before collecting visitor information.
-6. Continue naming and custom-domain work through issue #5.
-7. Keep downloads disabled until the `current-release` governance issue is complete.
+3. Execute `support-copilot` issue #1873 and integrate at least three approved Current screenshots through issue #3.
+4. Create and secure the dedicated pilot-interest mailbox, then activate issue #4's public action.
+5. Continue naming and custom-domain work through issue #5.
+6. Keep downloads disabled until the `current-release` governance issue is complete.
 
 ## Acceptance criteria for the next pass
 
@@ -160,6 +193,6 @@ Open `http://localhost:8000`.
 - Every route loads through the deployed project path.
 - The deployed URL is documented as verified.
 - At least three reviewed and manifested Current screenshots are present.
-- A real contact path exists with appropriate privacy language.
+- One tested dedicated pilot-interest action exists with accurate privacy language.
 - No claim exceeds the demonstrable Current release.
 - Documentation reflects the new state after every milestone.
