@@ -8,53 +8,69 @@ July 21, 2026
 
 `rtessno/tessn-website`
 
-## Work completed
+## Current state
 
-The initial website foundation has been created on branch:
+The initial website foundation was merged into `main` through pull request #1.
+
+Merge commit:
 
 ```text
-feature/website-foundation
+f3dac73e2a367b0e6774175dd656c4305520acd1
 ```
 
-It includes:
+The repository now contains:
 
 - a responsive Tessn homepage
 - a full Current product page
-- a design-partner/pilot overview
+- a design-partner and pilot overview
 - founder and operating-principles page
 - draft privacy and terms pages
-- custom CSS visual system
-- accessible mobile navigation
-- conceptual SVG product workflow visual
+- dependency-free HTML, CSS, JavaScript, and SVG assets
+- accessible mobile navigation and visible keyboard focus
 - GitHub Pages deployment workflow
 - preview noindex controls
 - security and contribution policies
-- project context, architecture, claim governance, release integration, decisions, roadmap, backlog, and continuation instructions
+- project context, architecture, claims governance, release integration, decisions, roadmap, backlog, and continuation instructions
 
 ## Important findings
 
-1. `tessn-website` was reported by GitHub as **public**, even though the founder believed it was private.
-2. `current-release` was reported as private and empty.
+1. `tessn-website` was reported by GitHub as **public**, even though the founder believed it was private. Verify visibility manually and intentionally.
+2. `current-release` was reported as private and empty except for its initial README.
 3. No public installer should be linked yet.
 4. Tessn should not be presented as an LLC until formation is complete.
 5. Current remains a provisional product name pending final clearance.
+6. A local clone-based validation could not be run during bootstrap because the execution environment could not resolve GitHub. The site has no dependencies or build step, but deployed route validation remains required.
 
 ## Deployment state
 
-The workflow exists but GitHub Pages may still require repository configuration:
+The Pages workflow is present on `main` and uploads only `site/`.
 
-1. Merge the foundation pull request to `main`.
-2. Open Settings → Pages.
-3. Select **GitHub Actions** as the source.
-4. Trigger or observe `Deploy GitHub Pages`.
-5. Validate the generated site URL.
+No workflow status was attached to the merge commit through the available connector. The likely next action is the repository-level Pages setting:
+
+1. Open Settings → Pages.
+2. Select **GitHub Actions** as the source.
+3. Trigger or observe `Deploy GitHub Pages`.
+4. Validate the generated site URL.
+5. Record the URL in this handoff and README.
+
+## Organized issue queue
+
+### Tessn website
+
+- #2 — P0: Activate and verify GitHub Pages deployment
+- #3 — P1: Add sanitized Current product screenshots
+- #4 — P1: Establish pilot contact and privacy-reviewed intake
+- #5 — P1: Complete naming, domain, and launch metadata
+
+### Current release repository
+
+- `rtessno/current-release` #1 — Establish Current release governance before public downloads
 
 ## Local preview
 
 ```bash
 git clone https://github.com/rtessno/tessn-website.git
 cd tessn-website
-git checkout feature/website-foundation
 python3 -m http.server 8000 --directory site
 ```
 
@@ -62,20 +78,21 @@ Open `http://localhost:8000`.
 
 ## Immediate next tasks
 
-1. Review and merge the pull request.
-2. Enable and verify Pages deployment.
-3. Inspect mobile and desktop rendering.
-4. Choose the pilot contact method.
-5. Create synthetic, sanitized Current screenshots.
-6. Replace conceptual visuals with real product evidence.
-7. Continue naming and custom-domain work.
+1. Complete issue #2 and verify Pages deployment.
+2. Inspect mobile and desktop rendering at the deployed project URL.
+3. Confirm repository visibility is intentional.
+4. Choose the pilot contact method through issue #4.
+5. Create synthetic, sanitized Current screenshots through issue #3.
+6. Continue naming and custom-domain work through issue #5.
+7. Keep downloads disabled until the `current-release` governance issue is complete.
 
 ## Acceptance criteria for the next pass
 
 - Pages deployment is green.
 - Every route loads through the deployed project path.
 - Repository visibility is intentional.
+- The deployed URL is documented.
 - A real contact path exists with appropriate privacy language.
 - At least three sanitized product screenshots are present.
 - No claim exceeds the demonstrable Current release.
-- Documentation reflects the new state.
+- Documentation reflects the new state after each milestone.

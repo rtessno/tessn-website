@@ -15,19 +15,28 @@ Keep the Current product-development project separate. This repository should re
 Use this exact message in the new project:
 
 ```text
-@GitHub start next tasks. Read README.md, docs/PROJECT-CONTEXT.md, docs/HANDOFF.md, docs/ROADMAP.md, docs/WEBSITE-BACKLOG.md, docs/CONTENT-AND-CLAIMS.md, and docs/DECISIONS.md first. Inspect the current repository and open pull requests. Continue from the highest-priority incomplete tasks, beginning with review/merge readiness and GitHub Pages deployment verification. Keep documentation and HANDOFF.md current after every completed milestone. Do not publish downloads, claim LLC status, or add unverified product claims.
+@GitHub start next tasks. Read README.md, docs/PROJECT-CONTEXT.md, docs/HANDOFF.md, docs/ROADMAP.md, docs/WEBSITE-BACKLOG.md, docs/NEXT-TASKS.md, docs/CONTENT-AND-CLAIMS.md, and docs/DECISIONS.md first. Inspect main and the open issues. Continue from issue #2, Activate and verify GitHub Pages deployment, then proceed through the highest-priority incomplete tasks. Keep documentation and HANDOFF.md current after every completed milestone. Do not publish downloads, claim LLC status, or add unverified product claims.
 ```
 
 ## Expected first-pass behavior
 
 The new project should:
 
-1. Inspect the open foundation pull request and changed files.
-2. Verify the site structure and deployment workflow.
-3. Identify anything blocking merge.
-4. Merge only when the foundation is coherent.
-5. Verify or guide the manual Pages source setting.
-6. Update the roadmap, backlog, decisions, and handoff as work progresses.
+1. Confirm the foundation from PR #1 is present on `main`.
+2. Inspect issue #2 and the Pages deployment workflow.
+3. Verify or guide the manual Pages source setting.
+4. Validate the deployed routes, assets, mobile navigation, and artifact scope.
+5. Record the deployed URL and close issue #2 only when acceptance criteria are met.
+6. Continue with issues #3, #4, and #5 in priority order.
+7. Update the roadmap, backlog, decisions, and handoff as work progresses.
+
+## Existing organized work
+
+- Website issue #2 — Pages deployment verification
+- Website issue #3 — sanitized Current product screenshots
+- Website issue #4 — pilot contact and privacy-reviewed intake
+- Website issue #5 — naming, domain, and launch metadata
+- `current-release` issue #1 — release governance before public downloads
 
 ## Context boundaries
 
