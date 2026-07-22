@@ -41,3 +41,9 @@
 **Decision:** Validate the static site on pull requests and pushes to `main` using `scripts/validate_site.py` and `.github/workflows/validate-site.yml`.
 
 **Reason:** The site has no build system, but deployment still requires repeatable checks for required routes, broken internal references, accessibility metadata, preview indexing controls, and accidental installer links. A standard-library validator preserves the dependency-free architecture.
+
+## 2026-07-21 — Require manifests for public Current product visuals
+
+**Decision:** Every Current screenshot published under `site/assets/images/current/` must include a same-stem JSON manifest with `approved_public` status and pass `scripts/validate_product_visuals.py`.
+
+**Reason:** Screenshots can expose restricted information or imply capabilities that are not implemented. Recording the exact source commit, fixture, viewport, supported claims, sanitization review, reviewer, alternative text, caption, and image digest makes each public visual traceable and prevents planned or unreviewed captures from being presented as product evidence.
