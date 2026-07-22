@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Current investigation workflow</title>
+  <desc id="desc">Evidence flows through analysis and structured reasoning into grounded handoffs and reusable knowledge.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" x2="1">
+      <stop offset="0" stop-color="#F7FBFB"/>
+      <stop offset="1" stop-color="#EAF3F4"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="420" rx="28" fill="url(#panel)"/>
+  <g font-family="Arial, sans-serif">
+    <g fill="#FFFFFF" stroke="#BCDADD" stroke-width="2">
+      <rect x="40" y="76" width="210" height="268" rx="18"/>
+      <rect x="375" y="76" width="210" height="268" rx="18"/>
+      <rect x="710" y="76" width="210" height="268" rx="18"/>
+    </g>
+    <g fill="#022B3A" font-weight="700" font-size="22">
+      <text x="68" y="116">Fragmented evidence</text>
+      <text x="403" y="116">Current workspace</text>
+      <text x="738" y="116">Grounded outcomes</text>
+    </g>
+    <g fill="#60757D" font-size="17">
+      <text x="68" y="160">Tickets and comments</text>
+      <text x="68" y="194">Logs and commands</text>
+      <text x="68" y="228">Files and screenshots</text>
+      <text x="68" y="262">Notes and documentation</text>
+      <text x="403" y="160">Evidence normalization</text>
+      <text x="403" y="194">Deterministic analysis</text>
+      <text x="403" y="228">Timeline and findings</text>
+      <text x="403" y="262">Facts and hypotheses</text>
+      <text x="738" y="160">Reviewable handoffs</text>
+      <text x="738" y="194">Customer-safe summaries</text>
+      <text x="738" y="228">Reusable knowledge</text>
+      <text x="738" y="262">Auditable record</text>
+    </g>
+    <g stroke="#00A896" stroke-width="5" fill="none" stroke-linecap="round">
+      <path d="M275 210h70"/>
+      <path d="M610 210h70"/>
+    </g>
+    <g fill="#00A896">
+      <path d="M345 210l-14-10v20z"/>
+      <path d="M680 210l-14-10v20z"/>
+    </g>
+  </g>
+</svg>
