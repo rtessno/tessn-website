@@ -7,6 +7,7 @@
 - PR #8 added post-deployment HTTP verification and marker-based reporting to issue #2.
 - PR #9 synchronized documentation with the verified Pages activation blocker.
 - PR #10 established the Current product visual evidence gate.
+- PR #13 established controlled pilot-intake readiness.
 - The repository is public, contains only presentation source and governance documentation, and keeps downloads disabled.
 
 ## Task 1 — Activate and verify Pages
@@ -60,7 +61,7 @@ Remaining capture and integration work:
 
 Tracking: issue #4
 
-Completed foundation:
+Completed foundation through PR #13:
 
 - Selected a dedicated business email as the initial channel architecture.
 - Defined minimum first-contact information and qualification questions.
@@ -81,17 +82,29 @@ Remaining activation work:
 - Re-review the privacy notice and test mobile and desktop behavior.
 - Close issue #4.
 
-## Task 4 — Domain and launch controls
+## Task 4 — Complete naming, domain, and launch metadata
 
 Tracking: issue #5
 
-- Complete name screening.
-- Select domain.
-- Configure DNS and Pages custom domain.
-- Remove or revise the project-path `<base>` in `site/404.html` when the custom domain is activated.
-- Add canonical and social metadata.
-- Add final sitemap.
-- Remove noindex only after launch review.
+Completed fail-closed foundation:
+
+- Added `docs/launch/launch-state.json`.
+- Added `docs/LAUNCH-CONTROLS.md`.
+- Added automated preview and launch-state validation with unit tests.
+- Added draft 1200×630 social-preview artwork.
+- Preserved noindex, crawler blocking, and the absence of canonical URLs, CNAME, sitemap, structured data, analytics, and live social tags.
+
+Remaining decision and activation work:
+
+- Complete umbrella-brand and product-name screening.
+- Select and acquire the domain.
+- Activate and verify GitHub Pages.
+- Configure DNS, Pages custom domain, and HTTPS.
+- Generate and review a platform-ready social preview raster.
+- Transition the manifest to `launch_candidate` with indexing still disabled.
+- Add canonical, Open Graph, social, sitemap, and accurate structured metadata.
+- Complete content, privacy, terms, accessibility, and launch review.
+- Transition to `launched` and remove noindex only through an explicit reviewed change.
 
 ## Task 5 — Release repository readiness
 
