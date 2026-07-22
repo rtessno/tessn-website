@@ -76,6 +76,23 @@ Negative boundary statements must not be rewritten into implied positive claims.
 - Standalone desktop packaging or support
 - Public documentation availability without deployed URL verification
 
+## Documentation navigation rule
+
+Current technical documentation and CLI learning surfaces remain authoritative in `rtessno/support-copilot`. Tessn must not fork detailed operator documentation or add an external documentation action merely because a build workflow or candidate URL exists.
+
+Before linking, require:
+
+- a stable public HTTPS destination
+- exact deployed source or release identity
+- route verification for home, quickstart, operator, search, and CLI surfaces
+- public-safe navigation that does not depend on a private repository
+- installation and release behavior consistent with `current-release`
+- visible maturity, availability, support, and release boundaries
+- explicit external-host allowlisting and deployed verification
+- a rollback path for stale, unavailable, or unsafe content
+
+The current decision is documented in `docs/CURRENT-DOCUMENTATION-NAVIGATION.md`: remain link-free until the reconsideration gate passes. Installation guides, customer-distribution material, environment variables, operator security procedures, raw OpenAPI content, private repository links, and CLI release actions must not be treated as neutral public marketing resources without separate review.
+
 ## Prohibited or discouraged language
 
 - Fully autonomous diagnosis
