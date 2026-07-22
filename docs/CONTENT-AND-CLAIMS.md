@@ -43,7 +43,7 @@ Use **Tessn** as a brand. Do not use **Tessn Solutions LLC** or another entity d
 
 ## Screenshot rule
 
-All screenshots must use synthetic or irreversibly sanitized data. Remove:
+All public product screenshots must use synthetic data by default or deliberately reviewed sanitized data. Remove:
 
 - customer names
 - email addresses
@@ -55,6 +55,10 @@ All screenshots must use synthetic or irreversibly sanitized data. Remove:
 - employee names
 - contract or pricing information
 
+Every image under `site/assets/images/current/` must include a same-stem JSON manifest that records the exact Current source commit, fixture mode and identity, viewport, alt text, caption, supported claims, completed sanitization checklist, reviewer, review date, and final image SHA-256.
+
+The manifest status must be `approved_public`, and `python3 scripts/validate_product_visuals.py` must pass. A roadmap, design mock, test fixture, or planned capture is not public product evidence. See `docs/PRODUCT-VISUAL-EVIDENCE.md`.
+
 ## Review gate
 
 Every new public claim should answer:
@@ -64,3 +68,4 @@ Every new public claim should answer:
 3. Is it relevant to the target buyer?
 4. Is it phrased without overstating certainty?
 5. Does it require legal, security, or privacy review?
+6. When supported by a screenshot, is the image tied to an exact revision and approved manifest?
