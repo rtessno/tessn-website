@@ -1,47 +1,60 @@
 # Ordered Next Tasks
 
-## Task 1 — Review foundation PR
+## Completed — Foundation
 
-- Inspect all files for correctness and consistency.
-- Verify relative links under GitHub project Pages paths.
-- Check mobile navigation and accessibility.
-- Confirm only `site/` is uploaded.
-- Merge when ready.
+- PR #1 merged to `main`.
+- Static website, deployment workflow, governance documents, roadmap, backlog, and handoff are present.
+- Follow-on work is organized as GitHub issues.
 
-## Task 2 — Activate Pages
+## Task 1 — Activate and verify Pages
 
+Tracking: issue #2
+
+- Verify repository visibility is intentional.
 - Settings → Pages → Source: GitHub Actions.
 - Run the deployment workflow.
 - Record the deployed URL.
-- Test every route.
+- Test every route and asset path.
+- Check mobile navigation and accessibility.
+- Confirm only `site/` is uploaded.
 - Update README and HANDOFF with deployment status.
 
-## Task 3 — Establish contact path
+## Task 2 — Add real product evidence
 
-- Choose a dedicated business email or approved form/scheduling provider.
-- Document data collection.
-- Update privacy notice.
-- Replace temporary GitHub-profile CTA.
+Tracking: issue #3
 
-## Task 4 — Add real product evidence
-
-- Produce synthetic Current demonstration case.
+- Produce a synthetic Current demonstration case.
 - Capture at least three polished screenshots.
 - Sanitize and review.
 - Add alt text and captions.
 - Confirm visuals support rather than overstate claims.
 
-## Task 5 — Domain and launch controls
+## Task 3 — Establish contact path
+
+Tracking: issue #4
+
+- Choose a dedicated business email or approved form/scheduling provider.
+- Document data collection and retention.
+- Update privacy notice.
+- Replace temporary GitHub-profile CTA.
+- Explicitly prohibit sensitive evidence in initial intake.
+
+## Task 4 — Domain and launch controls
+
+Tracking: issue #5
 
 - Complete name screening.
 - Select domain.
 - Configure DNS and Pages custom domain.
-- Add canonical/social metadata.
+- Add canonical and social metadata.
+- Add final sitemap.
 - Remove noindex only after launch review.
 
-## Task 6 — Release repository readiness
+## Task 5 — Release repository readiness
 
-- Inspect `rtessno/current-release`.
+Tracking: `rtessno/current-release` issue #1
+
 - Add release governance and documentation.
+- Define supported platforms.
 - Define signing, checksums, SBOM, licensing, support, and access model.
 - Keep direct downloads disabled until the gate is satisfied.
