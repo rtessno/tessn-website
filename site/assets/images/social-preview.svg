@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Tessn and Current social preview draft</title>
+  <desc id="desc">A dark navy preview card with the Tessn mark, the Current product name, and the phrase structured support investigations.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#022b3a"/>
+      <stop offset="1" stop-color="#05485b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.2" r="0.8">
+      <stop offset="0" stop-color="#00a896" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#00a896" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <circle cx="1060" cy="520" r="260" fill="none" stroke="#7fe7d5" stroke-opacity="0.16" stroke-width="2"/>
+  <circle cx="1060" cy="520" r="180" fill="none" stroke="#7fe7d5" stroke-opacity="0.12" stroke-width="2"/>
+  <g transform="translate(90 84)">
+    <rect width="66" height="66" rx="18" fill="#00a896"/>
+    <path d="M18 20h30v8H37v24h-8V28H18z" fill="#022b3a"/>
+    <text x="86" y="48" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800">Tessn</text>
+  </g>
+  <g transform="translate(90 230)">
+    <text fill="#7fe7d5" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4">CURRENT</text>
+    <text y="92" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="800">Structured support</text>
+    <text y="170" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="800">investigations.</text>
+    <text y="230" fill="#cfe0e3" font-family="Inter, Arial, sans-serif" font-size="28">Evidence, reasoning, timelines, and handoffs in one traceable record.</text>
+  </g>
+  <text x="90" y="575" fill="#9bb8bf" font-family="Inter, Arial, sans-serif" font-size="20">Preview artwork · final domain and launch metadata pending</text>
+</svg>

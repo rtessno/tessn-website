@@ -13,6 +13,7 @@ Deployment readiness includes:
 - marker-based deployment reporting on issue #2
 - Current product screenshot evidence validation
 - controlled pilot-intake architecture without direct website collection
+- fail-closed preview and launch metadata validation
 
 The latest `main` deployment rerun `29889952423` failed at **Configure Pages** before the artifact-upload step. The remaining activation step is manual because it changes a repository setting not exposed through the connected GitHub tool:
 
@@ -39,6 +40,23 @@ The initial pilot-interest architecture is a dedicated business email address, b
 
 The website does not collect information directly. Initial outreach must not include customer evidence, logs, captures, credentials, internal URLs, proprietary source, regulated information, contracts, or pricing. See `docs/PILOT-INTAKE.md`.
 
+## Launch controls
+
+`docs/launch/launch-state.json` records whether the site is a preview, launch candidate, or launched. The current state is `preview`.
+
+While the state is preview, validation rejects:
+
+- custom-domain `CNAME`
+- canonical URLs
+- sitemap publication
+- live Open Graph URL metadata
+- structured data
+- analytics approval
+- search indexing
+- legal-entity approval
+
+A draft social-preview SVG is included for design review only. Live social tags require a platform-ready raster and an absolute HTTPS URL on the approved final domain. See `docs/LAUNCH-CONTROLS.md`.
+
 ## Local preview
 
 ```bash
@@ -53,9 +71,10 @@ Then open `http://localhost:8000`.
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 scripts/validate_site.py
 python3 scripts/validate_product_visuals.py
+python3 scripts/validate_launch_state.py
 ```
 
-The validators check required routes and assets, internal references, preview indexing controls, primary-navigation labels, pilot-intake safety copy, the prohibition on publishing installer links, and the evidence manifests for any public Current screenshots.
+The validators check required routes and assets, internal references, preview indexing controls, primary-navigation labels, pilot-intake safety copy, the prohibition on publishing installer links, evidence manifests for any public Current screenshots, and the preview/launch metadata state.
 
 Every image under `site/assets/images/current/` must have an approved same-stem JSON manifest with an exact Current source commit, fixture identity, viewport, sanitization review, supported claims, reviewer, alt text, caption, and matching SHA-256. See `docs/PRODUCT-VISUAL-EVIDENCE.md`.
 
@@ -66,6 +85,7 @@ After a successful Pages deployment, `.github/workflows/verify-pages.yml` checks
 - `site/` — deployable public website
 - `scripts/validate_site.py` — dependency-free pre-deployment and intake-safety validation
 - `scripts/validate_product_visuals.py` — Current screenshot evidence validation
+- `scripts/validate_launch_state.py` — preview and launch metadata validation
 - `scripts/verify_deployed_site.py` — deployed HTTP verification
 - `scripts/upsert_issue_comment.py` — marker-based verification reporting
 - `.github/workflows/deploy-pages.yml` — GitHub Pages deployment
@@ -75,6 +95,8 @@ After a successful Pages deployment, `.github/workflows/verify-pages.yml` checks
 - `docs/PRODUCT-VISUAL-EVIDENCE.md` — public product screenshot acceptance gate
 - `docs/product-visuals/MANIFEST-TEMPLATE.json` — screenshot evidence manifest template
 - `docs/PILOT-INTAKE.md` — pilot-interest activation, qualification, and data boundaries
+- `docs/LAUNCH-CONTROLS.md` — naming, domain, metadata, indexing, and rollback gates
+- `docs/launch/launch-state.json` — machine-readable preview and launch state
 - `docs/ROADMAP.md` — ordered implementation roadmap
 - `docs/HANDOFF.md` — current-state handoff
 - `docs/NEW-CHAT-START.md` — exact starting point for the next ChatGPT project

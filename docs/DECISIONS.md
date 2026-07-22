@@ -59,3 +59,15 @@
 **Decision:** Initial pilot outreach may contain only basic professional contact information and a high-level workflow description. Customer evidence, tickets, logs, captures, credentials, internal URLs, proprietary source, regulated data, contracts, and pricing are prohibited until a written evidence-transfer and data-handling process exists.
 
 **Reason:** Early qualification does not require operational evidence. Separating interest intake from evidence transfer reduces accidental disclosure and prevents public or unsuitable channels from becoming an implicit customer-data workflow.
+
+## 2026-07-21 — Control launch metadata through a fail-closed manifest
+
+**Decision:** `docs/launch/launch-state.json` is the machine-readable source of truth for preview, launch-candidate, and launched states. `scripts/validate_launch_state.py` must reject canonical URLs, CNAME, sitemap publication, structured data, analytics, public social URLs, and indexing while the manifest remains in preview status.
+
+**Reason:** Domain and metadata changes are easy to apply independently and can accidentally convert a review site into a public launch. A single validated state record makes naming, domain, legal, privacy, evidence, and indexing dependencies explicit and keeps preview controls fail-closed.
+
+## 2026-07-21 — Treat social artwork as draft evidence until launch metadata is approved
+
+**Decision:** The repository may contain draft social-preview artwork for design review, but live Open Graph or social image tags require a platform-ready raster, an absolute HTTPS URL on the approved domain, and launch-manifest approval.
+
+**Reason:** Draft artwork is useful before domain selection, but publishing a non-resolving, provisional, or SVG-only social URL would create broken previews and imply a launch state that has not been approved.

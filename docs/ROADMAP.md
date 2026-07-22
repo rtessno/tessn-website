@@ -78,7 +78,7 @@ Remaining:
 
 Status: **Intake foundation complete; dedicated address activation pending — tracked by issue #4**
 
-Completed website-side foundation:
+Completed through PR #13:
 
 1. Selected a dedicated business email as the initial pilot-interest channel architecture.
 2. Rejected public GitHub issues, profiles, embedded forms, scheduling tools, and evidence uploads as the initial intake path.
@@ -99,17 +99,31 @@ Remaining:
 6. Re-review the privacy notice and test the path on mobile and desktop.
 7. Close issue #4 only after the public action works.
 
-## Milestone 4 — Brand and domain
+## Milestone 4 — Brand, domain, and launch metadata
 
-Status: **Queued — tracked by issue #5**
+Status: **Fail-closed launch foundation complete; naming and domain decisions pending — tracked by issue #5**
 
-1. Complete product-name and parent-name screening.
-2. Decide the public umbrella name.
-3. Purchase the selected domain.
-4. Configure DNS and GitHub Pages custom-domain settings.
-5. Enforce HTTPS.
-6. Add canonical URLs, social cards, sitemap, and structured metadata.
-7. Remove noindex only after launch review.
+Completed website-side foundation:
+
+1. Added `docs/launch/launch-state.json` as the machine-readable preview, launch-candidate, and launched state.
+2. Added `docs/LAUNCH-CONTROLS.md` with naming, domain, HTTPS, metadata, indexing, structured-data, analytics, rollback, and approval gates.
+3. Added `scripts/validate_launch_state.py` and unit tests.
+4. Enforced launch-state validation in `.github/workflows/validate-site.yml`.
+5. Added draft 1200×630 social-preview SVG artwork for design review.
+6. Kept live social tags, canonical URLs, sitemap, CNAME, structured data, analytics, and indexing disabled.
+7. Preserved the provisional Tessn and Current naming status and the no-LLC rule.
+
+Remaining:
+
+1. Complete umbrella-brand and product-name screening.
+2. Select and acquire the public domain.
+3. Activate and verify GitHub Pages.
+4. Configure DNS, Pages custom domain, and HTTPS.
+5. Generate and review a platform-ready social preview raster.
+6. Transition the manifest to `launch_candidate` while keeping indexing disabled.
+7. Add canonical, Open Graph, social, sitemap, and accurate structured metadata.
+8. Complete content, privacy, terms, accessibility, and launch review.
+9. Transition to `launched` and remove noindex only through an explicit reviewed change.
 
 ## Milestone 5 — Launch-quality content
 
