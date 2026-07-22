@@ -10,12 +10,20 @@ July 21, 2026
 
 ## Current state
 
-The initial website foundation was merged into `main` through pull request #1. Deployment-readiness hardening is active in draft pull request #7 on branch `agent/pages-activation-verification`.
+The website foundation and deployment-readiness controls are merged to `main`.
 
-Foundation merge commit:
+Key merges:
 
 ```text
-f3dac73e2a367b0e6774175dd656c4305520acd1
+PR #1  — foundation
+PR #7  — static deployment validation and route/accessibility fixes
+PR #8  — post-deployment HTTP verification and issue reporting
+```
+
+Current `main` commit after PR #8:
+
+```text
+8b5a324c77417a41834f44404903874d7a17d53b
 ```
 
 The repository contains:
@@ -25,66 +33,72 @@ The repository contains:
 - a design-partner and pilot overview
 - founder and operating-principles page
 - draft privacy and terms pages
-- dependency-free HTML, CSS, JavaScript, and SVG assets
+- dependency-free HTML, CSS, JavaScript, SVG, and Python verification helpers
 - accessible mobile navigation and visible keyboard focus
 - GitHub Pages deployment workflow
-- static-site validation workflow and dependency-free validator
+- pre-deployment static validation workflow
+- post-deployment HTTP verification workflow
 - preview noindex controls
 - security and contribution policies
 - project context, architecture, claims governance, release integration, decisions, roadmap, backlog, and continuation instructions
 
-## Deployment-readiness milestone
+## Completed deployment-readiness controls
 
-PR #7 adds and has successfully run a validation gate that checks:
+The repository now verifies:
 
 - all seven HTML pages and required assets
 - internal routes and references
 - primary-navigation accessibility labels
 - preview `noindex` and `robots.txt` controls
 - the prohibition on public installer links
-- the nested project Pages 404 base path
+- nested project Pages 404 behavior
+- deployed route, asset, content-type, preview-directive, and 404 responses after a successful Pages deployment
 
-The deployment workflow still uploads only `site/`.
+Post-deployment results are written to one marker-based comment on issue #2 while that issue remains open.
 
-## Important findings
+## Verified Pages blocker
 
-1. `tessn-website` is currently **public**. Its tracked content is presentation source and governance documentation intended to contain no secrets, customer evidence, private product code, or installers.
-2. GitHub Pages on GitHub Free requires a public repository; private-repository Pages requires an eligible paid plan. The public state is being retained for the current Pages preview unless the hosting plan changes.
-3. `current-release` is private and must remain the separate release-governance boundary.
-4. No public installer should be linked yet.
-5. Tessn must not be presented as an LLC until formation is complete.
-6. Current remains a provisional product name pending final clearance.
+The `Deploy GitHub Pages` run below was triggered from `main` after PR #8:
 
-## Deployment state
+```text
+Run: 29889297595
+Job: deploy
+Failure step: Configure Pages
+Artifact upload: skipped
+Deployment: skipped
+```
 
-Expected project Pages URL:
+The workflow and site are not the blocker. GitHub Pages has not been activated as the repository publishing source.
+
+### Required manual action
+
+1. Open repository **Settings**.
+2. Select **Pages** under Code and automation.
+3. Under Build and deployment, set **Source** to **GitHub Actions**.
+4. Rerun `Deploy GitHub Pages`, or push a new commit to `main`.
+5. Confirm the automated issue #2 report changes from FAIL to PASS.
+
+Expected URL, not yet verified:
 
 ```text
 https://rtessno.github.io/tessn-website/
 ```
 
-Completed:
+## Important guardrails
 
-- deployment workflow reviewed
-- artifact scope confirmed as `site/` only
-- route and asset validation added and green on PR #7
-- 404 project-path defect repaired
-- Privacy and Terms navigation labeling repaired
-
-Remaining manual/external verification:
-
-1. Open Settings → Pages.
-2. Confirm **GitHub Actions** is selected as the source.
-3. Merge PR #7 to trigger validation and deployment from `main`.
-4. Observe `Deploy GitHub Pages` complete successfully.
-5. Validate `/`, `/current/`, `/pilot/`, `/about/`, `/privacy/`, `/terms/`, assets, mobile navigation, and a nested 404 over HTTP.
-6. Record the verified deployment result here and in README, then close issue #2.
+1. `tessn-website` is public and must contain no secrets, customer evidence, private Current source, or installers.
+2. `current-release` remains private and is the separate release-governance boundary.
+3. No public installer may be linked yet.
+4. Tessn must not be presented as an LLC until formation is complete.
+5. Current remains a provisional product name pending final clearance.
+6. Public claims must remain within `docs/CONTENT-AND-CLAIMS.md`.
+7. Preview indexing controls remain enabled.
 
 ## Organized issue queue
 
 ### Tessn website
 
-- #2 — P0: Activate and verify GitHub Pages deployment — **in progress through PR #7**
+- #2 — P0: Activate and verify GitHub Pages deployment — **blocked only on Settings → Pages → GitHub Actions**
 - #3 — P1: Add sanitized Current product screenshots
 - #4 — P1: Establish pilot contact and privacy-reviewed intake
 - #5 — P1: Complete naming, domain, and launch metadata
@@ -106,20 +120,19 @@ Open `http://localhost:8000`.
 
 ## Immediate next tasks
 
-1. Complete issue #2 by confirming the Pages source, merging PR #7, and verifying the deployed site.
-2. Inspect mobile and desktop rendering at the deployed project URL.
-3. Begin issue #3 only with synthetic or irreversibly sanitized Current visuals.
-4. Choose the pilot contact method through issue #4 before collecting any visitor information.
+1. Perform the manual Pages source change and confirm issue #2 passes.
+2. Verify mobile and desktop rendering at the deployed URL, then close issue #2.
+3. Continue issue #3 only with evidence from an exact Current revision and synthetic or irreversibly sanitized data.
+4. Choose the pilot contact method through issue #4 before collecting visitor information.
 5. Continue naming and custom-domain work through issue #5.
 6. Keep downloads disabled until the `current-release` governance issue is complete.
 
 ## Acceptance criteria for the next pass
 
-- Pages deployment is green.
+- Pages deployment and post-deployment verification are green.
 - Every route loads through the deployed project path.
-- Repository visibility remains intentional.
 - The deployed URL is documented as verified.
+- At least three reviewed and sanitized Current screenshots are present.
 - A real contact path exists with appropriate privacy language.
-- At least three sanitized product screenshots are present.
 - No claim exceeds the demonstrable Current release.
 - Documentation reflects the new state after every milestone.

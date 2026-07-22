@@ -18,23 +18,31 @@ Delivered:
 
 ## Milestone 1 — Repository and deployment activation
 
-Status: **In progress — deployment-readiness validation passed on PR #7**
+Status: **Blocked on one manual repository setting — tracked by issue #2**
 
 Completed:
 
-1. Confirmed the repository is currently public and contains only presentation-site source and governance documentation suitable for public visibility.
+1. Confirmed the repository is public and contains only presentation-site source and governance documentation suitable for public visibility.
 2. Added a dependency-free validator for required routes, internal links, assets, navigation labels, preview indexing controls, and the no-download gate.
 3. Added pull-request and `main` validation through `.github/workflows/validate-site.yml`.
 4. Fixed the nested project Pages 404 base path.
 5. Added missing accessible primary-navigation labels on Privacy and Terms.
 6. Confirmed the deployment workflow uploads only `site/`.
+7. Added post-deployment HTTP verification and marker-based reporting to issue #2 through PR #8.
+8. Triggered `Deploy GitHub Pages` from `main` and captured the exact failure state.
+
+Verified blocker:
+
+- workflow run `29889297595` failed in the **Configure Pages** step
+- artifact upload and deployment were skipped
+- repository **Settings → Pages → Source** must be set to **GitHub Actions**
 
 Remaining:
 
-1. Confirm Settings → Pages uses **GitHub Actions** as the publishing source.
-2. Merge PR #7 to trigger validation and deployment from `main`.
-3. Observe a successful Pages deployment.
-4. Validate `https://rtessno.github.io/tessn-website/` and every route over HTTP on mobile and desktop.
+1. Change the Pages source setting to **GitHub Actions**.
+2. Rerun `Deploy GitHub Pages`, or push a new commit to `main`.
+3. Observe the automated issue #2 report pass.
+4. Validate mobile and desktop rendering at `https://rtessno.github.io/tessn-website/`.
 5. Record the verified deployment result in README and HANDOFF, then close issue #2.
 
 ## Milestone 2 — Real product visuals

@@ -7,14 +7,17 @@
 - [x] Add automated validation for required routes, internal links, assets, accessibility metadata, preview indexing controls, and prohibited installer links.
 - [x] Repair the custom 404 page for nested GitHub project Pages URLs.
 - [x] Confirm the deployment workflow publishes only `site/`.
-- [ ] Confirm Settings → Pages → Source is **GitHub Actions**.
-- [ ] Confirm workflow deployment from `main`.
-- [ ] Preview all deployed routes over HTTP and repair any remaining path issues.
+- [x] Add post-deployment HTTP verification and issue #2 reporting.
+- [x] Trigger deployment from `main` and identify the exact blocker.
+- [ ] Set Settings → Pages → Source to **GitHub Actions**.
+- [ ] Rerun `Deploy GitHub Pages` and confirm it succeeds.
+- [ ] Confirm the issue #2 HTTP verification report passes.
+- [ ] Inspect the deployed site on iPhone, tablet, and desktop.
 - [ ] Record the verified deployed URL in README and HANDOFF.
 - [ ] Select pilot contact channel.
 - [ ] Replace temporary GitHub-profile CTA.
 
-Primary tracking issue: #2. Deployment-readiness validation passed on PR #7; Pages activation and deployed-route verification remain open.
+Primary tracking issue: #2. Run `29889297595` failed at **Configure Pages** before artifact upload because the Pages publishing source is not activated.
 
 ## P1 — Presentation quality
 
