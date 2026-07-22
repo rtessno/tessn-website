@@ -15,7 +15,7 @@
 - [ ] Inspect the deployed site on iPhone, tablet, and desktop.
 - [ ] Record the verified deployed URL in README and HANDOFF.
 
-Primary tracking issue: #2. Latest rerun `29889952423` failed at **Configure Pages** before artifact upload because the Pages publishing source is not activated.
+Primary tracking issue: #2. Latest run `29891467285` failed at **Configure Pages** before artifact upload because the Pages publishing source is not activated.
 
 ## P1 — Presentation quality
 
@@ -26,6 +26,8 @@ Primary tracking issue: #2. Latest rerun `29889952423` failed at **Configure Pag
 - [x] Create draft 1200×630 social-sharing artwork for design review.
 - [x] Add concise trust and deployment content.
 - [x] Add static and deployed-route validation for trust boundaries.
+- [x] Add static checks for document language, landmarks, skip links, heading order, image alt attributes, unexpected external asset hosts, and asset budgets.
+- [x] Enforce the static-quality gate in CI.
 - [ ] Freeze an exact Current candidate SHA for capture.
 - [ ] Capture and approve at least three synthetic Current screenshots.
 - [ ] Integrate approved screenshots with factual alt text and captions.
@@ -36,7 +38,7 @@ Primary tracking issue: #2. Latest rerun `29889952423` failed at **Configure Pag
 - [ ] Test keyboard-only navigation and screen-reader landmarks.
 - [ ] Complete deployed performance and broken-link review.
 
-Primary tracking issue: #3 for product visuals. Trust content is present but deployment-specific assurance remains scoped to an exact pilot configuration.
+Primary tracking issue: #3 for product visuals and #16 for browser-dependent quality review.
 
 ## P1 — Commercial readiness
 
