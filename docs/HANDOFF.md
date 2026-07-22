@@ -10,15 +10,19 @@ July 22, 2026
 
 ## Current state
 
-The repository contains the website foundation, deployment verification, Current product-visual evidence gate, controlled pilot-intake foundation, fail-closed launch metadata controls, public trust/deployment boundaries, and a pre-deployment static-quality gate.
+The GitHub Pages preview is live and verified:
 
-Milestone merges before this branch:
+`https://rtessno.github.io/tessn-website/`
+
+Issue #2 is closed after **15/15** automated deployment checks passed. The repository also contains the Current product-visual evidence gate, controlled pilot-intake foundation, fail-closed launch metadata controls, public trust/deployment boundaries, and static-quality validation.
+
+Milestone merges:
 
 ```text
 PR #1   — foundation
 PR #7   — static deployment validation and route/accessibility fixes
 PR #8   — post-deployment HTTP verification and issue reporting
-PR #9   — verified Pages activation blocker documentation
+PR #9   — Pages activation blocker documentation
 PR #10  — Current product visual evidence gate
 PR #11  — product visual milestone handoff and roadmap closeout
 PR #12  — stable HANDOFF state
@@ -26,56 +30,41 @@ PR #13  — controlled pilot intake readiness
 PR #14  — fail-closed launch metadata guardrails
 PR #15  — trust and deployment boundaries
 PR #17  — fan-out milestone handoff reconciliation
+PR #18  — static accessibility and asset-quality gate
 ```
 
 Use the repository `main` ref as the source of truth rather than copying a commit SHA into this document.
 
-The repository contains:
+## Verified Pages deployment
 
-- responsive Tessn and Current presentation pages
-- Pilot, About, Trust, Privacy, and Terms pages
-- dependency-free HTML, CSS, JavaScript, SVG, and Python verification helpers
-- pre-deployment route, accessibility, static-quality, visual-evidence, and launch-state validation
-- post-deployment HTTP verification
-- preview noindex and crawler-blocking controls
-- product-visual evidence governance and manifest validation
-- controlled pilot-intake architecture and privacy boundaries
-- machine-readable preview and launch state
-- draft social-preview artwork for design review
-- trust and deployment content that distinguishes demonstrated behavior, product direction, pilot commitments, and non-claims
-- project context, architecture, decisions, roadmap, backlog, and continuation instructions
-
-## Verified Pages blocker
-
-The latest `main` deployment remains blocked before artifact upload:
-
-```text
-Run: 29891467285
-Job: deploy
-Failure step: Configure Pages
-Artifact upload: skipped
-Deployment: skipped
-```
-
-Required manual action:
-
-1. Open repository **Settings**.
-2. Select **Pages** under Code and automation.
-3. Set **Build and deployment → Source** to **GitHub Actions**.
-4. Rerun `Deploy GitHub Pages`, or push a new commit to `main`.
-5. Confirm the automated issue #2 report changes from FAIL to PASS.
-
-Expected URL, not yet verified:
+Public preview:
 
 ```text
 https://rtessno.github.io/tessn-website/
 ```
 
-After successful deployment, issue #2 automatically verifies Home, Current, Pilot, About, Trust, Privacy, Terms, CSS, JavaScript, SVG assets, preview crawler controls, pilot safety copy, trust boundaries, and nested 404 behavior.
+Automated verification passed 15/15 checks for:
+
+- Home
+- Current
+- Pilot and its sensitive-evidence warning
+- About
+- Trust and its non-claim boundaries
+- Privacy
+- Terms
+- site and pilot CSS
+- JavaScript
+- Tessn mark
+- Current workflow SVG
+- draft social-preview SVG
+- `robots.txt` preview blocking
+- nested custom 404 behavior
+
+The preview remains `noindex,nofollow`; successful deployment does not imply launch approval.
 
 ## Static quality milestone
 
-The current continuation branch adds:
+PR #18 added:
 
 - `scripts/validate_quality.py`
 - `tests/test_validate_quality.py`
@@ -84,14 +73,29 @@ The current continuation branch adds:
 The gate checks:
 
 - `lang` and non-empty page titles
-- exactly one main and one footer landmark
+- main/footer landmarks, with an explicit custom-404 exception
 - valid skip-link targets
 - exactly one h1 and no skipped heading levels
 - image alt attributes
 - unexpected external asset hosts and protocol-relative references
 - HTML, CSS, JavaScript, and SVG file-size budgets
 
-These checks complete the repository-automatable portion of issue #16. Real browser, assistive-technology, performance, caching, console, and network review still require a working deployed URL.
+These checks complete the repository-automatable portion of issue #16.
+
+## Active deployed quality review
+
+Issue #16 is now unblocked and is the highest-priority active website task.
+
+Remaining browser-dependent work:
+
+- iPhone, tablet, compact desktop, wide desktop, and 200% zoom review
+- keyboard-only navigation and screen-reader spot checks
+- contrast and reduced-motion review
+- browser page-weight and performance measurements
+- caching, console, and network-request inspection
+- browser-level broken-link and layout review
+- Trust, Privacy, and Terms reconciliation against deployed behavior
+- appropriate legal review before commercial launch
 
 ## Product visual evidence
 
@@ -121,6 +125,7 @@ Remaining blocker: create and secure the mailbox, configure MFA and recovery, se
 
 Issue #5 has a fail-closed website-side foundation.
 
+- the GitHub Pages project preview is verified
 - `docs/launch/launch-state.json` remains `preview`
 - no custom domain or `CNAME`
 - no canonical URL or sitemap
@@ -129,30 +134,7 @@ Issue #5 has a fail-closed website-side foundation.
 - no indexing or legal-entity approval
 - draft social-preview SVG exists for design review only
 
-Remaining: complete name screening, acquire the domain, activate Pages, configure DNS and HTTPS, generate a platform-ready raster, transition to `launch_candidate` while retaining noindex, add final metadata, complete launch review, then explicitly transition to `launched`.
-
-## Deployed quality review
-
-Issue #16 now separates completed static automation from browser-dependent work.
-
-Completed repository-side checks:
-
-- document language and title
-- main/footer landmarks
-- skip links
-- heading order
-- image alternative text
-- unexpected external asset hosts
-- static asset budgets
-
-Remaining after issue #2 passes:
-
-- iPhone, tablet, compact desktop, wide desktop, and 200% zoom review
-- keyboard-only navigation and screen-reader spot checks
-- contrast and reduced-motion review
-- deployed broken-link, page-weight, image-size, caching, console, and third-party-request checks
-- Trust, Privacy, and Terms review against actual deployed behavior
-- appropriate legal review before commercial launch
+Remaining: complete name screening, acquire the domain, configure DNS and HTTPS, generate a platform-ready raster, transition to `launch_candidate` while retaining noindex, add final metadata, complete launch review, then explicitly transition to `launched`.
 
 ## Important guardrails
 
@@ -172,11 +154,11 @@ Remaining after issue #2 passes:
 
 ### Tessn website
 
-- #2 — P0 Pages deployment — **blocked only on Settings → Pages → GitHub Actions**
-- #16 — P1 deployed responsive/accessibility/performance review — **static automation advanced; browser review blocked on issue #2**
+- #16 — P1 deployed responsive/accessibility/performance review — **active and unblocked**
 - #3 — P1 Current screenshots — **capture tracked by support-copilot #1873**
 - #4 — P1 pilot contact — **foundation complete; mailbox activation pending**
 - #5 — P1 naming/domain/metadata — **fail-closed foundation complete; decisions and activation pending**
+- #2 — P0 Pages deployment — **closed; 15/15 checks passed**
 
 ### Cross-repository
 
@@ -200,17 +182,14 @@ Open `http://localhost:8000`.
 
 ## Immediate next tasks
 
-1. Perform the manual Pages source change and close issue #2 after deployed verification passes.
-2. Execute the browser-dependent remainder of issue #16 against the working deployed URL.
-3. Execute `support-copilot` issue #1873 and integrate approved screenshots through issue #3.
-4. Create and secure the pilot-interest mailbox, then activate issue #4.
-5. Complete name screening and domain selection through issue #5.
-6. Keep downloads disabled until `current-release` governance is complete.
+1. Execute issue #16 against the verified deployed URL.
+2. Execute `support-copilot` issue #1873 and integrate approved screenshots through issue #3.
+3. Create and secure the pilot-interest mailbox, then activate issue #4.
+4. Complete name screening and domain selection through issue #5.
+5. Keep downloads disabled until `current-release` governance is complete.
 
 ## Acceptance criteria for the next pass
 
-- Pages deployment and post-deployment verification are green.
-- Every route, including Trust, loads through the deployed project path.
 - Issue #16 records responsive, accessibility, performance, and integrity results.
 - At least three reviewed and manifested Current screenshots are present.
 - One tested dedicated pilot-interest action exists with accurate privacy language.
