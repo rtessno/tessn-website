@@ -18,14 +18,24 @@ Delivered:
 
 ## Milestone 1 — Repository and deployment activation
 
-Status: **Next — tracked by issue #2**
+Status: **In progress — deployment-readiness validation passed on PR #7**
 
-1. Verify repository visibility matches founder intent.
-2. In Settings → Pages, select GitHub Actions as the publishing source.
-3. Run or observe the Pages workflow from `main`.
-4. Validate the deployed URL on mobile and desktop.
-5. Confirm the published artifact contains only `site/`.
-6. Record the deployed URL and workflow result in README and HANDOFF.
+Completed:
+
+1. Confirmed the repository is currently public and contains only presentation-site source and governance documentation suitable for public visibility.
+2. Added a dependency-free validator for required routes, internal links, assets, navigation labels, preview indexing controls, and the no-download gate.
+3. Added pull-request and `main` validation through `.github/workflows/validate-site.yml`.
+4. Fixed the nested project Pages 404 base path.
+5. Added missing accessible primary-navigation labels on Privacy and Terms.
+6. Confirmed the deployment workflow uploads only `site/`.
+
+Remaining:
+
+1. Confirm Settings → Pages uses **GitHub Actions** as the publishing source.
+2. Merge PR #7 to trigger validation and deployment from `main`.
+3. Observe a successful Pages deployment.
+4. Validate `https://rtessno.github.io/tessn-website/` and every route over HTTP on mobile and desktop.
+5. Record the verified deployment result in README and HANDOFF, then close issue #2.
 
 ## Milestone 2 — Real product visuals
 
