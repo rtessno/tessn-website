@@ -3,15 +3,18 @@
 ## P0 — Required next
 
 - [x] Review and merge the foundation pull request.
-- [ ] Verify `tessn-website` visibility; it was public during bootstrap.
-- [ ] Enable GitHub Pages with GitHub Actions as source.
+- [x] Verify `tessn-website` visibility: the repository is public and contains only public presentation source and governance documentation.
+- [x] Add automated validation for required routes, internal links, assets, accessibility metadata, preview indexing controls, and prohibited installer links.
+- [x] Repair the custom 404 page for nested GitHub project Pages URLs.
+- [x] Confirm the deployment workflow publishes only `site/`.
+- [ ] Confirm Settings → Pages → Source is **GitHub Actions**.
 - [ ] Confirm workflow deployment from `main`.
-- [ ] Preview all routes and repair any path issues.
-- [ ] Record the deployed URL in README and HANDOFF.
+- [ ] Preview all deployed routes over HTTP and repair any remaining path issues.
+- [ ] Record the verified deployed URL in README and HANDOFF.
 - [ ] Select pilot contact channel.
 - [ ] Replace temporary GitHub-profile CTA.
 
-Primary tracking issue: #2.
+Primary tracking issue: #2. Deployment-readiness validation passed on PR #7; Pages activation and deployed-route verification remain open.
 
 ## P1 — Presentation quality
 
