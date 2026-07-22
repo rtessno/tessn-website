@@ -23,7 +23,23 @@ class Check:
 
 CHECKS = (
     Check("", 200, "text/html", ('name="robots" content="noindex,nofollow"',)),
-    Check("current/", 200, "text/html", ('name="robots" content="noindex,nofollow"',)),
+    Check(
+        "current/",
+        200,
+        "text/html",
+        (
+            'name="robots" content="noindex,nofollow"',
+            "Private beta · Design-partner stage",
+            "Authenticated web workspace",
+            "Current CLI",
+            "Current Desktop",
+            "Development preview",
+            "requires a separately running Current Server",
+            "Docker Compose",
+            "Kubernetes with Helm",
+            "No public download",
+        ),
+    ),
     Check("pilot/", 200, "text/html", ('name="robots" content="noindex,nofollow"', "Do not submit customer evidence")),
     Check("about/", 200, "text/html", ('name="robots" content="noindex,nofollow"',)),
     Check("trust/", 200, "text/html", ('name="robots" content="noindex,nofollow"', "No certification claim", "No outcome guarantee")),
@@ -134,7 +150,7 @@ def build_report(base_url: str, results: list[Result], attempt: int, attempts: i
     lines.extend(
         [
             "",
-            "Preview indexing controls, trust boundaries, pilot safety copy, and the no-public-download gate remain required after deployment.",
+            "Preview indexing controls, Current product-surface boundaries, trust boundaries, pilot safety copy, and the no-public-download gate remain required after deployment.",
         ]
     )
     return "\n".join(lines) + "\n"
