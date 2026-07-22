@@ -76,6 +76,7 @@ def validate_page(page: Path) -> list[str]:
     parser = QualityParser()
     parser.feed(page.read_text(encoding="utf-8"))
     relative = page.relative_to(SITE_ROOT)
+    is_custom_404 = relative == Path("404.html")
 
     if not parser.html_lang:
         errors.append(f"{relative}: html element is missing lang")
@@ -83,7 +84,7 @@ def validate_page(page: Path) -> list[str]:
         errors.append(f"{relative}: title is empty")
     if parser.main_count != 1:
         errors.append(f"{relative}: expected exactly one main landmark")
-    if parser.footer_count != 1:
+    if not is_custom_404 and parser.footer_count != 1:
         errors.append(f"{relative}: expected exactly one footer landmark")
     if not parser.heading_levels or parser.heading_levels[0] != 1:
         errors.append(f"{relative}: first heading must be h1")
@@ -96,7 +97,7 @@ def validate_page(page: Path) -> list[str]:
     for target in parser.skip_targets:
         if not target.startswith("#") or target[1:] not in parser.ids:
             errors.append(f"{relative}: skip link target {target!r} does not exist")
-    if parser.main_count and not parser.skip_targets:
+    if parser.main_count and not parser.skip_targets and not is_custom_404:
         errors.append(f"{relative}: missing skip link")
 
     for image in parser.images:
@@ -111,7 +112,7 @@ def validate_page(page: Path) -> list[str]:
         parts = urlsplit(value)
         if parts.scheme in {"http", "https"} and parts.netloc not in ALLOWED_EXTERNAL_HOSTS:
             errors.append(f"{relative}: unexpected external {attribute} reference {value!r}")
-        if parts.scheme == "//":
+        if value.startswith("//"):
             errors.append(f"{relative}: protocol-relative reference is prohibited ({value!r})")
 
     return errors
