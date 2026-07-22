@@ -27,3 +27,6 @@ jobs:
 
       - name: Validate Current public product visual evidence
         run: python3 scripts/validate_product_visuals.py
+
+      - name: Validate preview and launch metadata state
+        run: python3 scripts/validate_launch_state.py
