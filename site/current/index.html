@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Current is the support investigation platform for complex technical escalations.">
+  <meta name="description" content="Current is a private-beta support investigation platform with web, CLI, and self-hosted deployment surfaces.">
   <meta name="robots" content="noindex,nofollow">
   <title>Current — Support investigation platform</title>
   <link rel="icon" href="../assets/images/tessn-mark.svg" type="image/svg+xml">
@@ -12,18 +12,144 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="container nav-shell"><a class="brand" href="../"><img src="../assets/images/tessn-mark.svg" alt=""><span>Tessn</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" data-site-nav data-open="false" aria-label="Primary navigation"><a href="./" aria-current="page">Current</a><a href="../about/">About</a><a href="../pilot/">Pilot</a><a class="button" href="../pilot/">Request a pilot</a></nav></div></header>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="../"><img src="../assets/images/tessn-mark.svg" alt=""><span>Tessn</span></a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" data-site-nav data-open="false" aria-label="Primary navigation">
+        <a href="./" aria-current="page">Current</a>
+        <a href="../about/">About</a>
+        <a href="../pilot/">Pilot</a>
+        <a class="button" href="../pilot/">Request a pilot</a>
+      </nav>
+    </div>
+  </header>
+
   <main id="main">
-    <section class="page-hero"><div class="container"><p class="eyebrow">Current · Support Investigation Platform</p><h1>Make complex technical escalations reproducible.</h1><p class="lede">Current turns fragmented customer-support evidence into structured investigations with explicit timelines, findings, hypotheses, source references, and reviewable handoffs.</p><div class="inline-actions"><a class="button" href="../pilot/">Explore a pilot</a><a class="button secondary" href="#workflow">See the workflow</a></div></div></section>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Current · Private beta · Design-partner stage</p>
+        <h1>Make complex technical escalations reproducible.</h1>
+        <p class="lede">Current is a self-hostable investigation platform that turns fragmented support evidence into structured investigations with explicit timelines, findings, hypotheses, source references, and reviewable handoffs.</p>
+        <div class="inline-actions">
+          <a class="button" href="../pilot/">Explore a pilot</a>
+          <a class="button secondary" href="#surfaces">Review product surfaces</a>
+        </div>
+        <div class="notice"><strong>No public download.</strong> Current is being evaluated through controlled design-partner workflows while packaging, signing, licensing, support, and release governance remain incomplete.</div>
+      </div>
+    </section>
 
-    <section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">The operational gap</p><h2>Support systems manage cases. Engineers still reconstruct the investigation by hand.</h2></div><p>Ticketing records communication. Observability exposes telemetry. Chat accelerates collaboration. Documentation preserves reference material. Current addresses the missing case-specific layer where evidence and technical reasoning become one defensible narrative.</p></div><div class="cards"><article class="card"><span class="number">CONTEXT</span><h3>One case workspace</h3><p>Bring ticket context, files, logs, screenshots, commands, notes, and documentation together.</p></article><article class="card"><span class="number">REASONING</span><h3>Explicit investigation record</h3><p>Separate facts, hypotheses, conclusions, decisions, and unresolved questions.</p></article><article class="card"><span class="number">OUTCOME</span><h3>Grounded handoffs</h3><p>Produce internal and customer-safe summaries that preserve the supporting evidence.</p></article></div></div></section>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">The operational gap</p><h2>Support systems manage cases. Engineers still reconstruct the investigation by hand.</h2></div>
+          <p>Ticketing records communication. Observability exposes telemetry. Chat accelerates collaboration. Documentation preserves reference material. Current addresses the missing case-specific layer where evidence and technical reasoning become one defensible narrative.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><span class="number">CONTEXT</span><h3>One case workspace</h3><p>Bring ticket context, files, logs, screenshots, commands, notes, and documentation together.</p></article>
+          <article class="card"><span class="number">REASONING</span><h3>Explicit investigation record</h3><p>Separate facts, hypotheses, conclusions, decisions, and unresolved questions.</p></article>
+          <article class="card"><span class="number">OUTCOME</span><h3>Grounded handoffs</h3><p>Produce internal and customer-safe summaries that preserve the supporting evidence.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <section class="section pale" id="workflow"><div class="container"><div class="section-heading"><div><p class="eyebrow">How Current works</p><h2>A six-stage investigation lifecycle.</h2></div><p>The live product demonstration and pilot evaluation should follow this same sequence.</p></div><div class="steps"><article class="step"><h3>Create or import</h3><p>Establish case context, ownership, priority, customer impact, and ticket references.</p></article><article class="step"><h3>Collect evidence</h3><p>Add logs, files, commands, notes, screenshots, ticket history, and system context.</p></article><article class="step"><h3>Analyze</h3><p>Use deterministic analyzers to surface recurring failures, severity patterns, and high-signal signatures.</p></article><article class="step"><h3>Build the record</h3><p>Organize timeline events, evidence references, findings, hypotheses, and decisions.</p></article><article class="step"><h3>Produce the handoff</h3><p>Create internal or customer-safe summaries without severing the connection to source evidence.</p></article><article class="step"><h3>Publish knowledge</h3><p>Promote resolved and governed patterns into reusable documentation through the broader knowledge lifecycle.</p></article></div></div></section>
+    <section class="section pale" id="workflow">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">How Current works</p><h2>A six-stage investigation lifecycle.</h2></div>
+          <p>The live product demonstration and pilot evaluation should follow this same sequence.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><h3>Create or import</h3><p>Establish case context, ownership, priority, customer impact, and ticket references.</p></article>
+          <article class="step"><h3>Collect evidence</h3><p>Add logs, files, commands, notes, screenshots, ticket history, and system context.</p></article>
+          <article class="step"><h3>Analyze</h3><p>Use deterministic analyzers to surface recurring failures, severity patterns, and high-signal signatures.</p></article>
+          <article class="step"><h3>Build the record</h3><p>Organize timeline events, evidence references, findings, hypotheses, and decisions.</p></article>
+          <article class="step"><h3>Produce the handoff</h3><p>Create internal or customer-safe summaries without severing the connection to source evidence.</p></article>
+          <article class="step"><h3>Publish knowledge</h3><p>Promote resolved and governed patterns into reusable documentation through the broader knowledge lifecycle.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <section class="section dark"><div class="container"><div class="section-heading"><div><p class="eyebrow">Product principles</p><h2>Controlled, inspectable, and support-specific.</h2></div><p>These are product-direction statements. Deployment details and individual controls must remain aligned with what the implemented release can actually demonstrate.</p></div><ul class="feature-list"><li><strong>Investigation-first workflow</strong><span>The case record is the primary object—not a generic chatbot transcript.</span></li><li><strong>Deterministic analysis before explanation</strong><span>Structured tools organize evidence before optional generative assistance.</span></li><li><strong>Evidence provenance</strong><span>Claims, findings, and summaries retain inspectable source references.</span></li><li><strong>Local-first and self-hostable direction</strong><span>Deployment and data-handling choices remain visible and controlled.</span></li><li><strong>Reusable investigation patterns</strong><span>Teams can standardize high-value workflows instead of rebuilding them ad hoc.</span></li><li><strong>Knowledge lifecycle</strong><span>Completed cases can become governed operational knowledge rather than disappearing into ticket history.</span></li></ul></div></section>
+    <section class="section" id="surfaces">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">Product surfaces</p><h2>One investigation model, presented through different working surfaces.</h2></div>
+          <p>The web workspace, command-line interface, and desktop development preview share the Current Server model. Their maturity and operating requirements are not identical.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><span class="number">WEB</span><h3>Authenticated web workspace</h3><p>Use the browser-based investigation console for visual investigation, collaboration, administration, evidence review, and structured handoff work.</p></article>
+          <article class="card"><span class="number">CLI</span><h3>Current CLI</h3><p>Create investigations, link case references, add evidence, inspect deterministic findings, export records, and use script-friendly JSON output from the terminal.</p></article>
+          <article class="card"><span class="number">DESKTOP</span><h3>Current Desktop</h3><p><strong>Development preview.</strong> The Tauri shell reuses the web frontend and requires a separately running Current Server. It does not bundle the backend, database, Redis, workers, or analyzers.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Who it is for</p><h2>Teams that handle escalations too complex for ticket comments alone.</h2></div><p>Initial focus: Tier 2 and Tier 3 support engineers, escalation engineers, supportability engineers, customer reliability teams, and support leaders in B2B software, infrastructure, developer tools, cloud services, and enterprise platforms.</p></div><div class="callout"><div><h2>Current is in the design-partner stage.</h2><p>Downloads are intentionally gated while packaging, signing, release support, and pilot readiness are hardened.</p></div><a class="button aqua" href="../pilot/">Review pilot fit</a></div></div></section>
+    <section class="section pale">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">CLI and web</p><h2>Use the surface that matches the investigation moment.</h2></div>
+          <p>The terminal favors rapid intake and automation. The web workspace favors visual review and collaboration. Both depend on the same server-side investigation record.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><span class="number">OPERATE</span><h3>Terminal-first work</h3><p>Use the CLI for evidence intake, repeatable commands, SSH-hosted operations, exports, and automation with stable machine-readable output.</p></article>
+          <article class="card"><span class="number">REVIEW</span><h3>Visual investigation</h3><p>Use the web workspace for timelines, evidence relationships, team review, administration, and structured investigation narratives.</p></article>
+          <article class="card"><span class="number">BOUNDARY</span><h3>Scoped access</h3><p>CLI workflows use scoped tokens, support OS keychain storage, and retain TLS, proxy, and custom certificate-authority controls for operator-managed environments.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">Deployment models</p><h2>Self-hosted paths with explicit operator responsibility.</h2></div>
+          <p>Current is a multi-service system. Deployment documentation and packaging exist, but the exact security, storage, access, retention, integration, external-AI, and support configuration must be evaluated for each pilot environment.</p>
+        </div>
+        <ul class="feature-list">
+          <li><strong>Docker Compose</strong><span>Development and production-style Compose paths coordinate the API, web frontend, database, Redis, and workers.</span></li>
+          <li><strong>Kubernetes with Helm</strong><span>Helm packaging supports Kubernetes-oriented deployment planning and operator configuration.</span></li>
+          <li><strong>Deterministic findings first</strong><span>Analyzers produce structured findings; optional language-model behavior explains stored results rather than replacing the evidence record.</span></li>
+          <li><strong>Configuration-specific trust</strong><span>No deployment model creates a certification, uptime promise, support commitment, or automatic diagnosis guarantee.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">Product principles</p><h2>Controlled, inspectable, and support-specific.</h2></div>
+          <p>These statements are reviewed against an exact Current source revision. Later capability changes require a new source review rather than silently expanding public claims.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><span class="number">EVIDENCE</span><h3>Inspectable sources</h3><p>Findings and outputs are intended to remain connected to supporting material rather than becoming unsupported summaries.</p></article>
+          <article class="card"><span class="number">HUMAN</span><h3>Review remains necessary</h3><p>Current is not presented as autonomous diagnosis or a guarantee of root cause, completeness, or error-free conclusions.</p></article>
+          <article class="card"><span class="number">TRACEABLE</span><h3>Claims are revision-bound</h3><p>Capabilities, maturity, deployment surfaces, limitations, and availability are recorded against a reviewed product revision.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">Who it is for</p><h2>Teams that handle escalations too complex for ticket comments alone.</h2></div>
+          <p>Initial focus: Tier 2 and Tier 3 support engineers, escalation engineers, supportability engineers, customer reliability teams, and support leaders in B2B software, infrastructure, developer tools, cloud services, and enterprise platforms.</p>
+        </div>
+        <div class="callout">
+          <div><h2>Evaluate Current through a controlled pilot.</h2><p>The pilot path focuses on workflows, evidence boundaries, deployment fit, and reviewable success criteria—not unrestricted downloads or unsupported production assurances.</p></div>
+          <a class="button aqua" href="../pilot/">Review pilot fit</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="../"><img src="../assets/images/tessn-mark.svg" alt=""><span>Tessn</span></a><p>Current complements the existing support stack by making the technical investigation a first-class work object.</p></div><div class="footer-links"><strong>Product</strong><a href="./">Current</a><a href="../pilot/">Pilot program</a></div><div class="footer-links"><strong>Company</strong><a href="../about/">About</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a></div></div><div class="footer-bottom"><span>© <span data-current-year></span> Tessn.</span><span>Preview website · No public downloads yet</span></div></div></footer>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="../"><img src="../assets/images/tessn-mark.svg" alt=""><span>Tessn</span></a><p>Current complements the existing support stack by making the technical investigation a first-class work object.</p></div>
+        <div class="footer-links"><strong>Product</strong><a href="./" aria-current="page">Current</a><a href="../pilot/">Pilot program</a></div>
+        <div class="footer-links"><strong>Company</strong><a href="../about/">About</a><a href="../trust/">Trust</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-current-year></span> Tessn.</span><span>Private beta · No public downloads</span></div>
+    </div>
+  </footer>
 </body>
 </html>
