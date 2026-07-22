@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "filename": "current__case-overview__1440x1000__abc123def456.png",
+  "sha256": "replace-with-final-image-sha256",
+  "capture_id": "CUR-WEB-CASE-OVERVIEW-001",
+  "surface": "case-overview",
+  "source_repository": "rtessno/support-copilot",
+  "source_commit": "replace-with-full-40-character-lowercase-commit-sha",
+  "fixture_mode": "synthetic",
+  "fixture_id": "acme-relay-INC-1042",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "captured_at": "2026-07-21T00:00:00-05:00",
+  "reviewed_at": "2026-07-21T00:00:00-05:00",
+  "reviewer": "replace-with-reviewer",
+  "alt_text": "Current case overview showing synthetic escalation context and investigation status.",
+  "caption": "A synthetic escalation organized as a traceable Current investigation.",
+  "claims_supported": [
+    "Current structures case context, evidence, findings, and investigation status."
+  ],
+  "sanitization": {
+    "customer_names_removed": true,
+    "email_addresses_removed": true,
+    "ticket_identifiers_removed": true,
+    "sensitive_ip_addresses_removed": true,
+    "internal_urls_removed": true,
+    "credentials_and_tokens_removed": true,
+    "proprietary_logs_removed": true,
+    "employee_names_removed": true,
+    "contract_and_pricing_removed": true
+  }
+}
