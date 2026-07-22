@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "preview",
+  "umbrella_brand": "Tessn",
+  "product_name": "Current",
+  "custom_domain": null,
+  "canonical_base_url": null,
+  "indexing_approved": false,
+  "legal_entity_approved": false,
+  "umbrella_name_screened": false,
+  "product_name_screened": false,
+  "social_preview": {
+    "draft_path": "site/assets/images/social-preview.svg",
+    "public_url": null,
+    "platform_ready_raster": false
+  },
+  "structured_data_approved": false,
+  "analytics_approved": false,
+  "approved_by": null,
+  "approved_on": null,
+  "notes": "Preview state. Do not add canonical URLs, CNAME, sitemap publication, structured organization data, analytics, or search indexing until the corresponding gates are complete."
+}
