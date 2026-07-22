@@ -8,7 +8,7 @@ The website is deployment-ready, but GitHub Pages is not yet activated in reposi
 
 Deployment readiness includes:
 
-- dependency-free static route, asset, accessibility-metadata, preview-indexing, 404-path, pilot-safety, and no-download validation
+- dependency-free static route, asset, accessibility-metadata, preview-indexing, 404-path, pilot-safety, trust-boundary, and no-download validation
 - post-deployment HTTP verification for every public route and required asset
 - marker-based deployment reporting on issue #2
 - Current product screenshot evidence validation
@@ -33,6 +33,17 @@ The preview remains `noindex,nofollow` and must not be treated as launch-ready u
 ## Primary product
 
 **Current** is a support investigation platform for complex technical escalations. It helps teams turn fragmented tickets, logs, files, commands, notes, screenshots, and documentation into structured, reproducible, and auditable investigations.
+
+## Trust and deployment boundaries
+
+The Trust page distinguishes:
+
+- demonstrated behavior of the static website
+- Current product principles and direction
+- deployment- and pilot-specific commitments that require written scope
+- security, compliance, availability, outcome, legal-entity, integration, and installer claims that are not made
+
+It explicitly states that it is not a security assessment, compliance statement, service-level agreement, data-processing agreement, pilot agreement, or software warranty. See `site/trust/index.html` and `docs/CONTENT-AND-CLAIMS.md`.
 
 ## Pilot interest
 
@@ -74,16 +85,17 @@ python3 scripts/validate_product_visuals.py
 python3 scripts/validate_launch_state.py
 ```
 
-The validators check required routes and assets, internal references, preview indexing controls, primary-navigation labels, pilot-intake safety copy, the prohibition on publishing installer links, evidence manifests for any public Current screenshots, and the preview/launch metadata state.
+The validators check required routes and assets, internal references, preview indexing controls, primary-navigation labels, pilot-intake safety copy, trust-page boundaries, the prohibition on publishing installer links, evidence manifests for any public Current screenshots, and the preview/launch metadata state.
 
 Every image under `site/assets/images/current/` must have an approved same-stem JSON manifest with an exact Current source commit, fixture identity, viewport, sanitization review, supported claims, reviewer, alt text, caption, and matching SHA-256. See `docs/PRODUCT-VISUAL-EVIDENCE.md`.
 
-After a successful Pages deployment, `.github/workflows/verify-pages.yml` checks the deployed routes, assets, `robots.txt`, preview directives, and nested 404 behavior and updates issue #2 with one current report.
+After a successful Pages deployment, `.github/workflows/verify-pages.yml` checks the deployed routes, assets, `robots.txt`, preview directives, trust boundaries, pilot safety copy, and nested 404 behavior and updates issue #2 with one current report.
 
 ## Repository map
 
 - `site/` — deployable public website
-- `scripts/validate_site.py` — dependency-free pre-deployment and intake-safety validation
+- `site/trust/` — trust, deployment, and public-claim boundaries
+- `scripts/validate_site.py` — dependency-free pre-deployment, intake-safety, and trust validation
 - `scripts/validate_product_visuals.py` — Current screenshot evidence validation
 - `scripts/validate_launch_state.py` — preview and launch metadata validation
 - `scripts/verify_deployed_site.py` — deployed HTTP verification
@@ -92,6 +104,7 @@ After a successful Pages deployment, `.github/workflows/verify-pages.yml` checks
 - `.github/workflows/validate-site.yml` — pull-request and `main` validation gate
 - `.github/workflows/verify-pages.yml` — post-deployment verification gate
 - `docs/PROJECT-CONTEXT.md` — durable business and product context
+- `docs/CONTENT-AND-CLAIMS.md` — public language and trust-claim governance
 - `docs/PRODUCT-VISUAL-EVIDENCE.md` — public product screenshot acceptance gate
 - `docs/product-visuals/MANIFEST-TEMPLATE.json` — screenshot evidence manifest template
 - `docs/PILOT-INTAKE.md` — pilot-interest activation, qualification, and data boundaries

@@ -17,21 +17,24 @@ from urllib.request import Request, urlopen
 class Check:
     path: str
     expected_status: int
-    expected_content_type: str | None = None
+    expected_content_type: str | tuple[str, ...] | None = None
     required_text: tuple[str, ...] = ()
 
 
 CHECKS = (
     Check("", 200, "text/html", ('name="robots" content="noindex,nofollow"',)),
     Check("current/", 200, "text/html", ('name="robots" content="noindex,nofollow"',)),
-    Check("pilot/", 200, "text/html", ('name="robots" content="noindex,nofollow"',)),
+    Check("pilot/", 200, "text/html", ('name="robots" content="noindex,nofollow"', "Do not submit customer evidence")),
     Check("about/", 200, "text/html", ('name="robots" content="noindex,nofollow"',)),
+    Check("trust/", 200, "text/html", ('name="robots" content="noindex,nofollow"', "No certification claim", "No outcome guarantee")),
     Check("privacy/", 200, "text/html", ('name="robots" content="noindex,nofollow"',)),
     Check("terms/", 200, "text/html", ('name="robots" content="noindex,nofollow"',)),
     Check("assets/css/site.css", 200, "text/css"),
+    Check("assets/css/pilot.css", 200, "text/css"),
     Check("assets/js/site.js", 200, ("javascript", "text/plain")),
     Check("assets/images/tessn-mark.svg", 200, "image/svg+xml"),
     Check("assets/images/current-workflow.svg", 200, "image/svg+xml"),
+    Check("assets/images/social-preview.svg", 200, "image/svg+xml"),
     Check("robots.txt", 200, "text/plain", ("Disallow: /",)),
     Check(
         "missing-route/nested/",
@@ -131,7 +134,7 @@ def build_report(base_url: str, results: list[Result], attempt: int, attempts: i
     lines.extend(
         [
             "",
-            "Preview indexing controls and the no-public-download gate remain required after deployment.",
+            "Preview indexing controls, trust boundaries, pilot safety copy, and the no-public-download gate remain required after deployment.",
         ]
     )
     return "\n".join(lines) + "\n"

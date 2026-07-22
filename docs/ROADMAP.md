@@ -23,13 +23,12 @@ Status: **Blocked on one manual repository setting — tracked by issue #2**
 Completed:
 
 1. Confirmed the repository is public and contains only presentation-site source and governance documentation suitable for public visibility.
-2. Added a dependency-free validator for required routes, internal links, assets, navigation labels, preview indexing controls, and the no-download gate.
+2. Added dependency-free route, asset, accessibility, preview, pilot-safety, trust-boundary, and no-download validation.
 3. Added pull-request and `main` validation through `.github/workflows/validate-site.yml`.
 4. Fixed the nested project Pages 404 base path.
-5. Added missing accessible primary-navigation labels on Privacy and Terms.
-6. Confirmed the deployment workflow uploads only `site/`.
-7. Added post-deployment HTTP verification and marker-based reporting to issue #2 through PR #8.
-8. Triggered and reran `Deploy GitHub Pages` from `main`; both attempts failed before artifact upload.
+5. Confirmed the deployment workflow uploads only `site/`.
+6. Added post-deployment HTTP verification and marker-based reporting to issue #2.
+7. Triggered and reran `Deploy GitHub Pages` from `main`; both attempts failed before artifact upload.
 
 Verified blocker:
 
@@ -49,28 +48,22 @@ Remaining:
 
 Status: **Evidence gate complete; capture and integration pending — tracked by issue #3**
 
-Completed website-side foundation through PR #10:
+Completed website-side foundation:
 
 1. Confirmed the Current repository has an active synthetic demonstration data policy and seed corpus.
 2. Confirmed no accepted public screenshot set or authoritative visual baseline was identified at the observed Current `main` revision.
-3. Defined the public screenshot acceptance and rejection rules in `docs/PRODUCT-VISUAL-EVIDENCE.md`.
-4. Added a required sidecar manifest template for source revision, fixture, viewport, supported claims, review, sanitization, and image digest.
-5. Added `scripts/validate_product_visuals.py` and connected it to the pull-request validation workflow.
-6. Added unit tests for approved, draft, digest-mismatch, incomplete-sanitization, and non-public fixture cases.
-7. Opened `rtessno/support-copilot` issue #1873 as the exact-revision synthetic capture handoff.
+3. Defined public screenshot acceptance and rejection rules.
+4. Added required sidecar manifests and automated validation.
+5. Added unit tests for positive and negative evidence states.
+6. Opened `rtessno/support-copilot` issue #1873 as the exact-revision synthetic capture handoff.
 
 Remaining:
 
 1. Freeze an exact Current candidate SHA through `support-copilot` issue #1873.
 2. Run Current with a synthetic demonstration case.
-3. Capture polished screenshots of:
-   - case overview
-   - evidence workspace
-   - deterministic findings or timeline
-   - optional engineering handoff
-   - optional Publisher/Gateway knowledge outcome
+3. Capture at least three implemented product surfaces.
 4. Complete one approved manifest per image.
-5. Integrate at least three approved images with descriptive alternative text and factual captions.
+5. Integrate approved images with factual alternative text and captions.
 6. Review mobile and desktop presentation.
 7. Update claims governance, handoff, roadmap, and issue #3 after integration.
 
@@ -82,36 +75,35 @@ Completed through PR #13:
 
 1. Selected a dedicated business email as the initial pilot-interest channel architecture.
 2. Rejected public GitHub issues, profiles, embedded forms, scheduling tools, and evidence uploads as the initial intake path.
-3. Defined minimum first-contact fields and qualification questions in `docs/PILOT-INTAKE.md`.
-4. Defined limited-access handling and a retention baseline without promising an unenforceable numeric period.
-5. Added explicit prohibitions on customer evidence, logs, captures, credentials, internal URLs, proprietary source, regulated information, contracts, and pricing.
-6. Removed the founder GitHub profile as the pilot-interest action.
+3. Defined minimum first-contact fields and qualification questions.
+4. Defined limited-access handling and a retention baseline.
+5. Added explicit sensitive-evidence prohibitions.
+6. Removed the founder GitHub profile as the intake action.
 7. Updated the pilot and privacy pages while keeping direct collection disabled.
-8. Added static validation for the contact-pending state and sensitive-evidence warning.
+8. Added static validation for the pending state and safety warning.
 
 Remaining:
 
 1. Create and secure the dedicated business mailbox.
 2. Configure multi-factor authentication and account recovery.
-3. Select a retention process that can be followed consistently.
+3. Select an enforceable retention process.
 4. Test sending and receiving.
 5. Publish the approved address and replace the pending state with one working `mailto:` action.
-6. Re-review the privacy notice and test the path on mobile and desktop.
+6. Re-review the privacy notice and test mobile and desktop behavior.
 7. Close issue #4 only after the public action works.
 
 ## Milestone 4 — Brand, domain, and launch metadata
 
 Status: **Fail-closed launch foundation complete; naming and domain decisions pending — tracked by issue #5**
 
-Completed website-side foundation:
+Completed through PR #14:
 
-1. Added `docs/launch/launch-state.json` as the machine-readable preview, launch-candidate, and launched state.
-2. Added `docs/LAUNCH-CONTROLS.md` with naming, domain, HTTPS, metadata, indexing, structured-data, analytics, rollback, and approval gates.
-3. Added `scripts/validate_launch_state.py` and unit tests.
-4. Enforced launch-state validation in `.github/workflows/validate-site.yml`.
-5. Added draft 1200×630 social-preview SVG artwork for design review.
-6. Kept live social tags, canonical URLs, sitemap, CNAME, structured data, analytics, and indexing disabled.
-7. Preserved the provisional Tessn and Current naming status and the no-LLC rule.
+1. Added a machine-readable preview, launch-candidate, and launched state.
+2. Documented naming, domain, HTTPS, metadata, indexing, structured-data, analytics, approval, and rollback gates.
+3. Added automated launch-state validation and unit tests.
+4. Added draft 1200×630 social-preview artwork for design review.
+5. Kept live social tags, canonical URLs, sitemap, CNAME, structured data, analytics, and indexing disabled.
+6. Preserved provisional naming and the no-LLC rule.
 
 Remaining:
 
@@ -125,14 +117,29 @@ Remaining:
 8. Complete content, privacy, terms, accessibility, and launch review.
 9. Transition to `launched` and remove noindex only through an explicit reviewed change.
 
-## Milestone 5 — Launch-quality content
+## Milestone 5 — Launch-quality trust content
 
-1. Validate every public capability claim against the target Current release.
-2. Add a concise security and deployment page.
-3. Add product architecture and edition information only when commercially settled.
-4. Complete accessibility review.
-5. Complete performance and broken-link checks.
-6. Obtain appropriate legal review for privacy and terms.
+Status: **Trust and deployment foundation complete; deployment-specific assurance remains pilot-scoped**
+
+Completed website-side foundation:
+
+1. Added `site/trust/index.html`.
+2. Distinguished demonstrated website behavior, Current product principles, pilot-specific commitments, and claims that remain unverified.
+3. Documented that the preview has no application accounts, payment flow, embedded intake form, first-party analytics, customer-evidence upload, or public installer.
+4. Added explicit non-claims for certification, compliance, general availability, uptime, customer counts, measured outcomes, guaranteed diagnosis, named integrations, legal entity, and installer assurance.
+5. Added explicit language that the page is not a security assessment, compliance statement, service-level agreement, data-processing agreement, pilot agreement, or software warranty.
+6. Updated `docs/CONTENT-AND-CLAIMS.md` with trust-boundary governance.
+7. Added static and deployed-route checks for the Trust page and required boundary language.
+8. Linked the Trust page from the homepage footer.
+
+Remaining launch-quality work:
+
+1. Review typography and spacing on iPhone, tablet, and desktop after Pages activation.
+2. Complete keyboard-only and screen-reader review.
+3. Complete performance and broken-link checks on the deployed URL.
+4. Obtain appropriate legal review for Privacy and Terms.
+5. Add deployment-specific controls only when demonstrated for the exact pilot configuration.
+6. Add product architecture or edition information only when commercially settled and evidence-backed.
 
 ## Milestone 6 — Controlled downloads
 

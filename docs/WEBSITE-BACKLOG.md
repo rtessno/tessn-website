@@ -24,17 +24,19 @@ Primary tracking issue: #2. Latest rerun `29889952423` failed at **Configure Pag
 - [x] Add automated validation for source revision, fixture mode, sanitization, review status, claims, and image digest.
 - [x] Open `rtessno/support-copilot` issue #1873 for the exact-revision synthetic capture handoff.
 - [x] Create draft 1200×630 social-sharing artwork for design review.
+- [x] Add concise trust and deployment content.
+- [x] Add static and deployed-route validation for trust boundaries.
 - [ ] Freeze an exact Current candidate SHA for capture.
 - [ ] Capture and approve at least three synthetic Current screenshots.
 - [ ] Integrate approved screenshots with factual alt text and captions.
 - [ ] Create an investigation before/after visual.
 - [ ] Add a product navigation or screenshot gallery.
 - [ ] Convert the social artwork to a reviewed platform-ready raster.
-- [ ] Add concise deployment and trust content.
 - [ ] Verify typography and spacing on iPhone, tablet, and desktop.
 - [ ] Test keyboard-only navigation and screen-reader landmarks.
+- [ ] Complete deployed performance and broken-link review.
 
-Primary tracking issue: #3. No accepted public screenshot set was identified at the observed Current revision, so no product images have been published.
+Primary tracking issue: #3 for product visuals. Trust content is present but deployment-specific assurance remains scoped to an exact pilot configuration.
 
 ## P1 — Commercial readiness
 
@@ -47,6 +49,7 @@ Primary tracking issue: #3. No accepted public screenshot set was identified at 
 - [x] Add a fail-closed preview and launch-state manifest.
 - [x] Document naming, domain, metadata, indexing, structured-data, analytics, and rollback gates.
 - [x] Add automated launch-state validation and unit tests.
+- [x] Add public trust language that distinguishes website behavior, product direction, pilot commitments, and non-claims.
 - [ ] Create and secure the dedicated business mailbox.
 - [ ] Select and operationalize a retention process.
 - [ ] Publish and test the dedicated address.
@@ -57,7 +60,7 @@ Primary tracking issue: #3. No accepted public screenshot set was identified at 
 - [ ] Configure DNS, Pages custom domain, and HTTPS.
 - [ ] Transition the launch manifest to `launch_candidate` while keeping indexing disabled.
 - [ ] Add final canonical, Open Graph, social, sitemap, and accurate structured metadata.
-- [ ] Complete launch review and explicitly approve indexing.
+- [ ] Complete legal and launch review and explicitly approve indexing.
 
 Primary tracking issues: #4 and #5. Issue #4 remains open until one tested public contact action exists. Issue #5 remains open until naming, domain, metadata, HTTPS, and launch approval are complete.
 
