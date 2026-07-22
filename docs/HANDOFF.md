@@ -12,7 +12,7 @@ July 21, 2026
 
 The repository contains the website foundation, deployment verification, Current product-visual evidence gate, controlled pilot-intake foundation, fail-closed launch metadata controls, and public trust/deployment boundaries.
 
-Milestone merges before this branch:
+Milestone merges:
 
 ```text
 PR #1   — foundation
@@ -24,6 +24,7 @@ PR #11  — product visual milestone handoff and roadmap closeout
 PR #12  — stable HANDOFF state
 PR #13  — controlled pilot intake readiness
 PR #14  — fail-closed launch metadata guardrails
+PR #15  — trust and deployment boundaries
 ```
 
 Use the repository `main` ref as the source of truth rather than copying a commit SHA into this document.
@@ -31,7 +32,7 @@ Use the repository `main` ref as the source of truth rather than copying a commi
 The repository contains:
 
 - responsive Tessn and Current presentation pages
-- pilot, About, Trust, Privacy, and Terms pages
+- Pilot, About, Trust, Privacy, and Terms pages
 - dependency-free HTML, CSS, JavaScript, SVG, and Python verification helpers
 - accessible mobile navigation and visible keyboard focus
 - pre-deployment validation and post-deployment HTTP verification
@@ -45,10 +46,10 @@ The repository contains:
 
 ## Verified Pages blocker
 
-The deployment rerun remains blocked before artifact upload:
+The latest `main` deployment remains blocked before artifact upload:
 
 ```text
-Run: 29889952423
+Run: 29891296302
 Job: deploy
 Failure step: Configure Pages
 Artifact upload: skipped
@@ -68,6 +69,8 @@ Expected URL, not yet verified:
 ```text
 https://rtessno.github.io/tessn-website/
 ```
+
+After successful deployment, issue #2 automatically verifies Home, Current, Pilot, About, Trust, Privacy, Terms, CSS, JavaScript, SVG assets, preview crawler controls, pilot safety copy, trust boundaries, and nested 404 behavior.
 
 ## Product visual evidence
 
@@ -109,7 +112,7 @@ Remaining: complete name screening, acquire the domain, activate Pages, configur
 
 ## Trust and deployment milestone
 
-The repository now includes `site/trust/index.html` and expanded claim governance.
+PR #15 added `site/trust/index.html` and expanded claim governance.
 
 The page distinguishes:
 
@@ -129,15 +132,21 @@ It explicitly avoids claiming:
 
 The page states that it is not a security assessment, compliance statement, service-level agreement, data-processing agreement, pilot agreement, or software warranty.
 
-Validation now requires the Trust route and boundary language locally and after deployment.
+Static and post-deployment verification now require the Trust route and boundary language.
 
-Remaining quality work:
+## Deployed quality review
 
-- review typography and spacing on iPhone, tablet, and desktop
-- test keyboard-only navigation and screen-reader landmarks
-- run deployed performance and broken-link checks
-- obtain appropriate legal review for Privacy and Terms
-- add deployment-specific controls only when demonstrated for the exact pilot configuration
+Issue #16 is the organized continuation queue for work that requires a working Pages URL and real browser behavior:
+
+- iPhone, tablet, compact desktop, wide desktop, and 200% zoom review
+- keyboard-only navigation and visible focus
+- screen-reader landmark and content spot checks
+- contrast and reduced-motion review
+- deployed broken-link, page-weight, image-size, caching, console, and third-party-request checks
+- Trust, Privacy, and Terms review against actual deployed behavior
+- appropriate legal review before commercial launch
+
+Issue #16 remains blocked on issue #2 deployment activation.
 
 ## Important guardrails
 
@@ -161,6 +170,7 @@ Remaining quality work:
 - #3 — P1 Current screenshots — **capture tracked by support-copilot #1873**
 - #4 — P1 pilot contact — **foundation complete; mailbox activation pending**
 - #5 — P1 naming/domain/metadata — **fail-closed foundation complete; decisions and activation pending**
+- #16 — P1 deployed responsive/accessibility/performance review — **blocked on issue #2**
 
 ### Cross-repository
 
@@ -184,16 +194,17 @@ Open `http://localhost:8000`.
 ## Immediate next tasks
 
 1. Perform the manual Pages source change and close issue #2 after deployed verification passes.
-2. Execute `support-copilot` issue #1873 and integrate approved screenshots through issue #3.
-3. Create and secure the pilot-interest mailbox, then activate issue #4.
-4. Complete name screening and domain selection through issue #5.
-5. Run deployed responsive, accessibility, performance, and broken-link review.
+2. Execute issue #16 against the working deployed URL.
+3. Execute `support-copilot` issue #1873 and integrate approved screenshots through issue #3.
+4. Create and secure the pilot-interest mailbox, then activate issue #4.
+5. Complete name screening and domain selection through issue #5.
 6. Keep downloads disabled until `current-release` governance is complete.
 
 ## Acceptance criteria for the next pass
 
 - Pages deployment and post-deployment verification are green.
 - Every route, including Trust, loads through the deployed project path.
+- Issue #16 records responsive, accessibility, performance, and integrity results.
 - At least three reviewed and manifested Current screenshots are present.
 - One tested dedicated pilot-interest action exists with accurate privacy language.
 - Naming, domain, and launch-state decisions are documented accurately.
