@@ -5,6 +5,7 @@
 - PR #1 merged the static website foundation to `main`.
 - PR #7 added static validation, repaired nested 404 behavior, and fixed navigation accessibility metadata.
 - PR #8 added post-deployment HTTP verification and marker-based reporting to issue #2.
+- PR #9 synchronized documentation with the verified Pages activation blocker.
 - The repository is public, contains only presentation source and governance documentation, and keeps downloads disabled.
 
 ## Task 1 — Activate and verify Pages
@@ -35,13 +36,23 @@ After the setting changes:
 
 Tracking: issue #3
 
-- Select an exact Current candidate revision.
-- Produce a synthetic demonstration case.
-- Capture at least three polished screenshots from the implemented product.
-- Record revision, fixture, viewport, and capture metadata.
-- Sanitize and review every image.
-- Add alt text and captions.
-- Confirm visuals support rather than overstate claims.
+Completed website-side foundation:
+
+- Verified the Current repository has an active synthetic demonstration data policy and seed corpus.
+- Verified no accepted public screenshot set or authoritative visual baseline was identified at the observed Current `main` revision.
+- Defined the screenshot acceptance and rejection process in `docs/PRODUCT-VISUAL-EVIDENCE.md`.
+- Added a mandatory JSON manifest template.
+- Added automated validation for source commit, fixture, viewport, public approval, sanitization, alt text, caption, supported claims, and final image digest.
+
+Remaining capture and integration work:
+
+- Freeze the exact Current candidate SHA that will be rendered.
+- Run the synthetic demonstration case.
+- Capture at least three polished screenshots from implemented product surfaces.
+- Complete and approve one manifest per image.
+- Integrate the images with factual alt text and captions.
+- Review the visual layout on mobile and desktop.
+- Update issue #3 and HANDOFF after integration.
 
 ## Task 3 — Establish contact path
 

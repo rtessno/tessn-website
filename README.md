@@ -6,12 +6,12 @@ Public-facing website repository for **Tessn**, the umbrella brand behind Curren
 
 The website is deployment-ready, but GitHub Pages is not yet activated in repository settings.
 
-Completed through pull requests #7 and #8:
+Completed through pull requests #7, #8, and #9:
 
 - dependency-free static route, asset, accessibility-metadata, preview-indexing, 404-path, and no-download validation
 - post-deployment HTTP verification for every public route and required asset
 - marker-based deployment reporting on issue #2
-- documentation synchronized with the deployment state
+- documentation synchronized with the verified deployment blocker
 
 The `main` deployment run `29889297595` failed at **Configure Pages** before the artifact-upload step. The remaining activation step is manual because it changes a repository setting not exposed through the connected GitHub tool:
 
@@ -44,9 +44,12 @@ Then open `http://localhost:8000`.
 
 ```bash
 python3 scripts/validate_site.py
+python3 scripts/validate_product_visuals.py
 ```
 
-The validator checks required routes and assets, internal references, preview indexing controls, primary-navigation labels, and the prohibition on publishing installer links.
+The validators check required routes and assets, internal references, preview indexing controls, primary-navigation labels, the prohibition on publishing installer links, and the evidence manifests for any public Current screenshots.
+
+Every image under `site/assets/images/current/` must have an approved same-stem JSON manifest with an exact Current source commit, fixture identity, viewport, sanitization review, supported claims, reviewer, alt text, caption, and matching SHA-256. See `docs/PRODUCT-VISUAL-EVIDENCE.md`.
 
 After a successful Pages deployment, `.github/workflows/verify-pages.yml` checks the deployed routes, assets, `robots.txt`, preview directives, and nested 404 behavior and updates issue #2 with one current report.
 
@@ -54,12 +57,15 @@ After a successful Pages deployment, `.github/workflows/verify-pages.yml` checks
 
 - `site/` — deployable public website
 - `scripts/validate_site.py` — dependency-free pre-deployment validation
+- `scripts/validate_product_visuals.py` — Current screenshot evidence validation
 - `scripts/verify_deployed_site.py` — deployed HTTP verification
 - `scripts/upsert_issue_comment.py` — marker-based verification reporting
 - `.github/workflows/deploy-pages.yml` — GitHub Pages deployment
 - `.github/workflows/validate-site.yml` — pull-request and `main` validation gate
 - `.github/workflows/verify-pages.yml` — post-deployment verification gate
 - `docs/PROJECT-CONTEXT.md` — durable business and product context
+- `docs/PRODUCT-VISUAL-EVIDENCE.md` — public product screenshot acceptance gate
+- `docs/product-visuals/MANIFEST-TEMPLATE.json` — screenshot evidence manifest template
 - `docs/ROADMAP.md` — ordered implementation roadmap
 - `docs/HANDOFF.md` — current-state handoff
 - `docs/NEW-CHAT-START.md` — exact starting point for the next ChatGPT project

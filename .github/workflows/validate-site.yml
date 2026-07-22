@@ -17,7 +17,13 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Compile Python verification helpers
-        run: python3 -m py_compile scripts/*.py
+        run: python3 -m py_compile scripts/*.py tests/*.py
+
+      - name: Test verification helpers
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
 
       - name: Validate routes, assets, accessibility metadata, and preview controls
         run: python3 scripts/validate_site.py
+
+      - name: Validate Current public product visual evidence
+        run: python3 scripts/validate_product_visuals.py

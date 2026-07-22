@@ -21,7 +21,12 @@ Primary tracking issue: #2. Run `29889297595` failed at **Configure Pages** befo
 
 ## P1 — Presentation quality
 
-- [ ] Add sanitized Current screenshots.
+- [x] Define the Current screenshot evidence and publication gate.
+- [x] Add a mandatory screenshot sidecar manifest template.
+- [x] Add automated validation for source revision, fixture mode, sanitization, review status, claims, and image digest.
+- [ ] Freeze an exact Current candidate SHA for capture.
+- [ ] Capture and approve at least three synthetic Current screenshots.
+- [ ] Integrate approved screenshots with factual alt text and captions.
 - [ ] Create an investigation before/after visual.
 - [ ] Add a product navigation or screenshot gallery.
 - [ ] Create social-sharing artwork.
@@ -29,7 +34,7 @@ Primary tracking issue: #2. Run `29889297595` failed at **Configure Pages** befo
 - [ ] Verify typography and spacing on iPhone, tablet, and desktop.
 - [ ] Test keyboard-only navigation and screen-reader landmarks.
 
-Primary tracking issue: #3.
+Primary tracking issue: #3. No accepted public screenshot set was identified at the observed Current revision, so no images have been published.
 
 ## P1 — Commercial readiness
 
