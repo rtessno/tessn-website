@@ -10,7 +10,7 @@ July 21, 2026
 
 ## Current state
 
-The website foundation and deployment-readiness controls are merged to `main`.
+The website foundation, deployment-readiness controls, and verified Pages-blocker documentation are merged to `main`. Product visual evidence governance is being added on branch `agent/product-visual-evidence-gate`.
 
 Key merges:
 
@@ -18,12 +18,13 @@ Key merges:
 PR #1  — foundation
 PR #7  — static deployment validation and route/accessibility fixes
 PR #8  — post-deployment HTTP verification and issue reporting
+PR #9  — verified Pages activation blocker documentation
 ```
 
-Current `main` commit after PR #8:
+Current `main` commit after PR #9:
 
 ```text
-8b5a324c77417a41834f44404903874d7a17d53b
+6bd55bd6cea973d368d9ef663310e36a0c061c3b
 ```
 
 The repository contains:
@@ -44,7 +45,7 @@ The repository contains:
 
 ## Completed deployment-readiness controls
 
-The repository now verifies:
+The repository verifies:
 
 - all seven HTML pages and required assets
 - internal routes and references
@@ -84,6 +85,28 @@ Expected URL, not yet verified:
 https://rtessno.github.io/tessn-website/
 ```
 
+## Product visual evidence milestone
+
+Issue #3 has advanced through a website-side evidence gate without publishing unreviewed images.
+
+Verified source context:
+
+- Current repository: `rtessno/support-copilot`
+- observed Current `main`: `4643c749f021c3ebf67075964f8fd5804e62c7e1`
+- active synthetic demonstration policy and seed corpus are present
+- the Current visual capture protocol states that no screenshot or visual baseline is accepted by that document
+- no accepted public screenshot set was identified
+
+The active product-visual branch adds:
+
+- `docs/PRODUCT-VISUAL-EVIDENCE.md`
+- `docs/product-visuals/MANIFEST-TEMPLATE.json`
+- `scripts/validate_product_visuals.py`
+- required source revision, fixture, viewport, claims, sanitization, reviewer, approval, and SHA-256 metadata
+- validation in `.github/workflows/validate-site.yml`
+
+No product screenshot has been published. The next visual step requires running an exact Current revision with synthetic data, capturing at least three product surfaces, completing one approved manifest per image, and integrating only images that pass the gate.
+
 ## Important guardrails
 
 1. `tessn-website` is public and must contain no secrets, customer evidence, private Current source, or installers.
@@ -93,13 +116,14 @@ https://rtessno.github.io/tessn-website/
 5. Current remains a provisional product name pending final clearance.
 6. Public claims must remain within `docs/CONTENT-AND-CLAIMS.md`.
 7. Preview indexing controls remain enabled.
+8. Product visuals require an `approved_public` manifest and exact source commit.
 
 ## Organized issue queue
 
 ### Tessn website
 
 - #2 — P0: Activate and verify GitHub Pages deployment — **blocked only on Settings → Pages → GitHub Actions**
-- #3 — P1: Add sanitized Current product screenshots
+- #3 — P1: Add sanitized Current product screenshots — **evidence gate in progress; captures not yet accepted**
 - #4 — P1: Establish pilot contact and privacy-reviewed intake
 - #5 — P1: Complete naming, domain, and launch metadata
 
@@ -114,6 +138,7 @@ git clone https://github.com/rtessno/tessn-website.git
 cd tessn-website
 python3 -m http.server 8000 --directory site
 python3 scripts/validate_site.py
+python3 scripts/validate_product_visuals.py
 ```
 
 Open `http://localhost:8000`.
@@ -122,17 +147,18 @@ Open `http://localhost:8000`.
 
 1. Perform the manual Pages source change and confirm issue #2 passes.
 2. Verify mobile and desktop rendering at the deployed URL, then close issue #2.
-3. Continue issue #3 only with evidence from an exact Current revision and synthetic or irreversibly sanitized data.
-4. Choose the pilot contact method through issue #4 before collecting visitor information.
-5. Continue naming and custom-domain work through issue #5.
-6. Keep downloads disabled until the `current-release` governance issue is complete.
+3. Freeze and run an exact Current candidate revision with the synthetic corpus for issue #3.
+4. Capture, review, and integrate at least three approved Current screenshots.
+5. Choose the pilot contact method through issue #4 before collecting visitor information.
+6. Continue naming and custom-domain work through issue #5.
+7. Keep downloads disabled until the `current-release` governance issue is complete.
 
 ## Acceptance criteria for the next pass
 
 - Pages deployment and post-deployment verification are green.
 - Every route loads through the deployed project path.
 - The deployed URL is documented as verified.
-- At least three reviewed and sanitized Current screenshots are present.
+- At least three reviewed and manifested Current screenshots are present.
 - A real contact path exists with appropriate privacy language.
 - No claim exceeds the demonstrable Current release.
 - Documentation reflects the new state after every milestone.
