@@ -10,9 +10,9 @@ July 21, 2026
 
 ## Current state
 
-The website foundation, deployment-readiness controls, verified Pages-blocker documentation, Current product visual evidence gate, and controlled pilot-intake foundation are implemented in repository history.
+The repository contains the website foundation, deployment verification, Current product-visual evidence gate, controlled pilot-intake foundation, and fail-closed launch metadata controls.
 
-Milestone merges before this pass:
+Milestone merges before this branch:
 
 ```text
 PR #1   — foundation
@@ -22,46 +22,28 @@ PR #9   — verified Pages activation blocker documentation
 PR #10  — Current product visual evidence gate
 PR #11  — product visual milestone handoff and roadmap closeout
 PR #12  — stable HANDOFF state
+PR #13  — controlled pilot intake readiness
 ```
 
 Use the repository `main` ref as the source of truth rather than copying a commit SHA into this document; updating the handoff itself changes that SHA.
 
 The repository contains:
 
-- a responsive Tessn homepage
-- a full Current product page
-- a design-partner and pilot overview
-- founder and operating-principles page
-- draft privacy and terms pages
+- responsive Tessn and Current presentation pages
+- pilot, About, Privacy, and Terms pages
 - dependency-free HTML, CSS, JavaScript, SVG, and Python verification helpers
 - accessible mobile navigation and visible keyboard focus
-- GitHub Pages deployment workflow
-- pre-deployment static and product-visual validation workflow
-- post-deployment HTTP verification workflow
-- preview noindex controls
-- security and contribution policies
-- product visual evidence governance and manifest template
-- controlled pilot-intake architecture and qualification rules
-- project context, architecture, claims governance, release integration, decisions, roadmap, backlog, and continuation instructions
-
-## Completed deployment-readiness controls
-
-The repository verifies:
-
-- all HTML pages and required assets
-- internal routes and references
-- primary-navigation accessibility labels
-- preview `noindex` and `robots.txt` controls
-- the prohibition on public installer links
-- nested project Pages 404 behavior
-- the pilot contact-pending state and sensitive-evidence warning
-- deployed route, asset, content-type, preview-directive, and 404 responses after a successful Pages deployment
-
-Post-deployment results are written to one marker-based comment on issue #2 while that issue remains open.
+- pre-deployment validation and post-deployment HTTP verification
+- preview noindex and crawler-blocking controls
+- product-visual evidence governance and manifest validation
+- controlled pilot-intake architecture and privacy boundaries
+- machine-readable preview and launch state
+- draft social-preview artwork for design review
+- project context, architecture, decisions, roadmap, backlog, and continuation instructions
 
 ## Verified Pages blocker
 
-The deployment was rerun during the continuation pass:
+The deployment rerun remains blocked before artifact upload:
 
 ```text
 Run: 29889952423
@@ -91,50 +73,63 @@ https://rtessno.github.io/tessn-website/
 
 Issue #3 has a completed website-side evidence gate without publishing unreviewed images.
 
-Verified source context:
-
 - Current repository: `rtessno/support-copilot`
 - observed Current `main`: `4643c749f021c3ebf67075964f8fd5804e62c7e1`
-- active synthetic demonstration policy and seed corpus are present
-- the Current visual capture protocol states that no screenshot or visual baseline is accepted by that document
-- no accepted public screenshot set was identified
-- Current-side execution is tracked by `rtessno/support-copilot` issue #1873
+- Current-side execution tracker: `rtessno/support-copilot` issue #1873
+- synthetic data is the default public capture mode
+- every public image requires an `approved_public` manifest and matching SHA-256
+- no accepted public screenshot set has been integrated
 
-The gate includes:
-
-- `docs/PRODUCT-VISUAL-EVIDENCE.md`
-- `docs/product-visuals/MANIFEST-TEMPLATE.json`
-- `scripts/validate_product_visuals.py`
-- unit tests covering approved, draft, digest-mismatch, incomplete-sanitization, and non-public fixture cases
-- required source revision, fixture, viewport, claims, sanitization, reviewer, approval, alt-text, caption, and SHA-256 metadata
-- enforcement in `.github/workflows/validate-site.yml`
-
-No product screenshot has been published. The next visual step requires running an exact Current revision with synthetic data, capturing at least three product surfaces, completing one approved manifest per image, and integrating only images that pass the gate.
+The next visual step is to execute issue #1873, capture at least three implemented Current surfaces with synthetic data, review them, and integrate only manifests that pass `scripts/validate_product_visuals.py`.
 
 ## Pilot intake milestone
 
-Issue #4 has advanced through a controlled website-side foundation without publishing an invented address or collecting visitor information.
+Issue #4 has a completed website-side intake foundation without publishing an invented address or collecting visitor information.
 
-Decisions and controls:
+- dedicated business email selected as the initial architecture
+- founder GitHub profile removed as the intake path
+- public GitHub issues, forms, scheduling tools, and evidence uploads rejected for initial intake
+- `docs/PILOT-INTAKE.md` defines activation, qualification, access, retention, and provider gates
+- pilot and privacy pages prohibit sensitive evidence and credentials
+- static validation enforces the pending state and warning
 
-- a dedicated business email is the selected initial contact architecture
-- the founder GitHub profile is no longer used as the pilot intake path
-- public GitHub issues, embedded forms, scheduling tools, and evidence uploads are not the initial channel
-- `docs/PILOT-INTAKE.md` defines activation, qualification, access, retention, and future-provider gates
-- the pilot page states which high-level information is appropriate for first contact
-- the pilot and privacy pages prohibit customer evidence, logs, captures, credentials, internal URLs, proprietary source, regulated information, contracts, and pricing
-- the website continues to collect no information directly
-- static validation enforces the contact-pending state and sensitive-evidence warning
+Remaining blocker: create and secure the mailbox, configure MFA and recovery, choose an enforceable retention process, test it, approve the address for publication, add one working `mailto:` action, and re-review privacy copy.
 
-Remaining issue #4 blocker:
+## Launch metadata milestone
 
-1. Create the dedicated business mailbox.
-2. Configure multi-factor authentication and recovery.
-3. Select a retention process that can be followed consistently.
-4. Test sending and receiving.
-5. Approve the address for publication.
-6. Replace the pending state with one working `mailto:` action.
-7. Re-review privacy copy and test mobile and desktop behavior.
+Issue #5 has a fail-closed website-side launch foundation.
+
+Added controls:
+
+- `docs/launch/launch-state.json` records `preview`, `launch_candidate`, or `launched`
+- `docs/LAUNCH-CONTROLS.md` defines naming, domain, HTTPS, canonical, social, sitemap, structured-data, analytics, indexing, approval, and rollback gates
+- `scripts/validate_launch_state.py` rejects premature launch behavior
+- unit tests cover preview acceptance, premature canonical URL, CNAME, indexing, incomplete launch candidate, and launched noindex states
+- `.github/workflows/validate-site.yml` runs the launch validator
+- `site/assets/images/social-preview.svg` is draft artwork only
+
+The current manifest remains `preview`. Therefore:
+
+- no custom domain or `CNAME`
+- no canonical URL
+- no sitemap publication
+- no live Open Graph URL or social image URL
+- no structured data
+- no analytics
+- no indexing approval
+- no legal-entity approval
+
+Remaining issue #5 work:
+
+1. Complete umbrella-brand and product-name screening.
+2. Select and acquire the domain.
+3. Activate and verify GitHub Pages.
+4. Configure DNS, custom-domain Pages settings, and HTTPS.
+5. Generate and review a platform-ready social preview raster.
+6. Transition to `launch_candidate` while retaining noindex.
+7. Add canonical, social, sitemap, and accurate structured metadata.
+8. Complete content, privacy, terms, accessibility, and launch review.
+9. Transition to `launched` and enable indexing only through an explicit reviewed change.
 
 ## Important guardrails
 
@@ -147,23 +142,21 @@ Remaining issue #4 blocker:
 7. Preview indexing controls remain enabled.
 8. Product visuals require an `approved_public` manifest and exact source commit.
 9. Initial pilot intake must not become an evidence-transfer channel.
+10. Canonical, domain, structured-data, analytics, and indexing changes must match the launch manifest.
 
 ## Organized issue queue
 
 ### Tessn website
 
-- #2 — P0: Activate and verify GitHub Pages deployment — **blocked only on Settings → Pages → GitHub Actions**
-- #3 — P1: Add sanitized Current product screenshots — **capture tracked by support-copilot #1873**
-- #4 — P1: Establish pilot contact and privacy-reviewed intake — **foundation complete; mailbox activation pending**
-- #5 — P1: Complete naming, domain, and launch metadata
+- #2 — P0 Pages deployment — **blocked only on Settings → Pages → GitHub Actions**
+- #3 — P1 Current screenshots — **capture tracked by support-copilot #1873**
+- #4 — P1 pilot contact — **foundation complete; mailbox activation pending**
+- #5 — P1 naming/domain/metadata — **fail-closed foundation complete; decisions and activation pending**
 
-### Current product
+### Cross-repository
 
-- `rtessno/support-copilot` #1873 — capture approved synthetic Current product visuals for the website
-
-### Current release repository
-
-- `rtessno/current-release` #1 — establish Current release governance before public downloads
+- `rtessno/support-copilot` #1873 — approved synthetic Current product visuals
+- `rtessno/current-release` #1 — release governance before public downloads
 
 ## Local preview and validation
 
@@ -174,25 +167,25 @@ python3 -m http.server 8000 --directory site
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 scripts/validate_site.py
 python3 scripts/validate_product_visuals.py
+python3 scripts/validate_launch_state.py
 ```
 
 Open `http://localhost:8000`.
 
 ## Immediate next tasks
 
-1. Perform the manual Pages source change and confirm issue #2 passes.
-2. Verify mobile and desktop rendering at the deployed URL, then close issue #2.
-3. Execute `support-copilot` issue #1873 and integrate at least three approved Current screenshots through issue #3.
-4. Create and secure the dedicated pilot-interest mailbox, then activate issue #4's public action.
-5. Continue naming and custom-domain work through issue #5.
-6. Keep downloads disabled until the `current-release` governance issue is complete.
+1. Perform the manual Pages source change and close issue #2 after deployed verification passes.
+2. Execute `support-copilot` issue #1873 and integrate approved screenshots through issue #3.
+3. Create and secure the pilot-interest mailbox, then activate issue #4.
+4. Complete name screening and domain selection through issue #5.
+5. Add concise deployment and trust content without claiming certifications or unsupported controls.
+6. Keep downloads disabled until `current-release` governance is complete.
 
 ## Acceptance criteria for the next pass
 
 - Pages deployment and post-deployment verification are green.
 - Every route loads through the deployed project path.
-- The deployed URL is documented as verified.
 - At least three reviewed and manifested Current screenshots are present.
 - One tested dedicated pilot-interest action exists with accurate privacy language.
+- Naming, domain, and launch-state decisions are documented accurately.
 - No claim exceeds the demonstrable Current release.
-- Documentation reflects the new state after every milestone.
