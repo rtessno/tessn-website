@@ -1,8 +1,10 @@
 # Tessn Website Roadmap
 
-## Milestone 0 — Foundation (this handoff)
+## Milestone 0 — Foundation
 
-Status: **Implemented on feature branch; merge and deployment setup remain**
+Status: **Complete and merged to `main` through PR #1**
+
+Delivered:
 
 - Static multi-page website scaffold
 - Responsive visual system
@@ -12,17 +14,22 @@ Status: **Implemented on feature branch; merge and deployment setup remain**
 - Preview indexing controls
 - Security and contribution guidance
 - Durable project context and continuation handoff
+- Organized issue queue for the next workstreams
 
 ## Milestone 1 — Repository and deployment activation
 
-1. Review and merge the foundation pull request.
-2. Verify repository visibility matches founder intent.
-3. In Settings → Pages, select GitHub Actions as the publishing source.
-4. Run or observe the Pages workflow from `main`.
-5. Validate the deployed URL on mobile and desktop.
-6. Confirm the published artifact contains only `site/`.
+Status: **Next — tracked by issue #2**
+
+1. Verify repository visibility matches founder intent.
+2. In Settings → Pages, select GitHub Actions as the publishing source.
+3. Run or observe the Pages workflow from `main`.
+4. Validate the deployed URL on mobile and desktop.
+5. Confirm the published artifact contains only `site/`.
+6. Record the deployed URL and workflow result in README and HANDOFF.
 
 ## Milestone 2 — Real product visuals
+
+Status: **Queued — tracked by issue #3**
 
 1. Create a synthetic demonstration case in Current.
 2. Capture polished screenshots of:
@@ -38,6 +45,8 @@ Status: **Implemented on feature branch; merge and deployment setup remain**
 
 ## Milestone 3 — Pilot conversion path
 
+Status: **Queued — tracked by issue #4**
+
 1. Select a public contact channel.
 2. Decide whether intake uses email, scheduling, or a privacy-reviewed form provider.
 3. Define pilot qualification questions.
@@ -46,6 +55,8 @@ Status: **Implemented on feature branch; merge and deployment setup remain**
 6. Replace the temporary GitHub-profile action.
 
 ## Milestone 4 — Brand and domain
+
+Status: **Queued — tracked by issue #5**
 
 1. Complete product-name and parent-name screening.
 2. Decide the public umbrella name.
@@ -65,6 +76,8 @@ Status: **Implemented on feature branch; merge and deployment setup remain**
 6. Obtain appropriate legal review for privacy and terms.
 
 ## Milestone 6 — Controlled downloads
+
+Cross-repository work begins with `rtessno/current-release` issue #1.
 
 1. Harden `current-release` repository governance.
 2. Produce signed and scanned preview installers.
