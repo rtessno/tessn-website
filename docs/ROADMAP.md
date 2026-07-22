@@ -29,11 +29,11 @@ Completed:
 5. Added missing accessible primary-navigation labels on Privacy and Terms.
 6. Confirmed the deployment workflow uploads only `site/`.
 7. Added post-deployment HTTP verification and marker-based reporting to issue #2 through PR #8.
-8. Triggered `Deploy GitHub Pages` from `main` and captured the exact failure state.
+8. Triggered and reran `Deploy GitHub Pages` from `main`; both attempts failed before artifact upload.
 
 Verified blocker:
 
-- workflow run `29889297595` failed in the **Configure Pages** step
+- latest rerun `29889952423` failed in the **Configure Pages** step
 - artifact upload and deployment were skipped
 - repository **Settings → Pages → Source** must be set to **GitHub Actions**
 
@@ -57,10 +57,11 @@ Completed website-side foundation through PR #10:
 4. Added a required sidecar manifest template for source revision, fixture, viewport, supported claims, review, sanitization, and image digest.
 5. Added `scripts/validate_product_visuals.py` and connected it to the pull-request validation workflow.
 6. Added unit tests for approved, draft, digest-mismatch, incomplete-sanitization, and non-public fixture cases.
+7. Opened `rtessno/support-copilot` issue #1873 as the exact-revision synthetic capture handoff.
 
 Remaining:
 
-1. Freeze an exact Current candidate SHA.
+1. Freeze an exact Current candidate SHA through `support-copilot` issue #1873.
 2. Run Current with a synthetic demonstration case.
 3. Capture polished screenshots of:
    - case overview
@@ -75,14 +76,28 @@ Remaining:
 
 ## Milestone 3 — Pilot conversion path
 
-Status: **Queued — tracked by issue #4**
+Status: **Intake foundation complete; dedicated address activation pending — tracked by issue #4**
 
-1. Select a public contact channel.
-2. Decide whether intake uses email, scheduling, or a privacy-reviewed form provider.
-3. Define pilot qualification questions.
-4. Draft pilot overview, commercial boundaries, and success measures.
-5. Update the privacy notice before collecting information.
-6. Replace the temporary GitHub-profile action.
+Completed website-side foundation:
+
+1. Selected a dedicated business email as the initial pilot-interest channel architecture.
+2. Rejected public GitHub issues, profiles, embedded forms, scheduling tools, and evidence uploads as the initial intake path.
+3. Defined minimum first-contact fields and qualification questions in `docs/PILOT-INTAKE.md`.
+4. Defined limited-access handling and a retention baseline without promising an unenforceable numeric period.
+5. Added explicit prohibitions on customer evidence, logs, captures, credentials, internal URLs, proprietary source, regulated information, contracts, and pricing.
+6. Removed the founder GitHub profile as the pilot-interest action.
+7. Updated the pilot and privacy pages while keeping direct collection disabled.
+8. Added static validation for the contact-pending state and sensitive-evidence warning.
+
+Remaining:
+
+1. Create and secure the dedicated business mailbox.
+2. Configure multi-factor authentication and account recovery.
+3. Select a retention process that can be followed consistently.
+4. Test sending and receiving.
+5. Publish the approved address and replace the pending state with one working `mailto:` action.
+6. Re-review the privacy notice and test the path on mobile and desktop.
+7. Close issue #4 only after the public action works.
 
 ## Milestone 4 — Brand and domain
 
