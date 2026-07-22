@@ -16,5 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Compile Python verification helpers
+        run: python3 -m py_compile scripts/*.py
+
       - name: Validate routes, assets, accessibility metadata, and preview controls
         run: python3 scripts/validate_site.py

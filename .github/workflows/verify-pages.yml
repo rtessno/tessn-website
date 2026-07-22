@@ -1,0 +1,83 @@
+name: Verify deployed GitHub Pages
+
+on:
+  workflow_run:
+    workflows:
+      - Deploy GitHub Pages
+    types:
+      - completed
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  report-deployment-failure:
+    if: ${{ github.event.workflow_run.conclusion != 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout verification helper
+        uses: actions/checkout@v6
+
+      - name: Build deployment failure report
+        env:
+          DEPLOY_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          DEPLOY_RUN_URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          cat > /tmp/pages-report.md <<EOF
+          <!-- tessn-pages-verification -->
+          ## GitHub Pages deployment verification: FAIL
+
+          The \`Deploy GitHub Pages\` workflow concluded \`${DEPLOY_CONCLUSION}\` before HTTP verification could run.
+
+          Deployment run: ${DEPLOY_RUN_URL}
+
+          Confirm **Settings → Pages → Source: GitHub Actions**, then rerun or trigger the deployment from \`main\`.
+          EOF
+
+      - name: Update issue 2 deployment report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/upsert_issue_comment.py \
+            --repository "${GITHUB_REPOSITORY}" \
+            --issue 2 \
+            --body-file /tmp/pages-report.md \
+            --marker '<!-- tessn-pages-verification -->' \
+            --open-only
+
+  verify-deployment:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout deployed revision
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Verify deployed routes and assets
+        id: verify
+        continue-on-error: true
+        run: |
+          python3 scripts/verify_deployed_site.py \
+            --base-url https://rtessno.github.io/tessn-website/ \
+            --attempts 18 \
+            --delay 10 \
+            --timeout 20 \
+            --report-file /tmp/pages-report.md
+
+      - name: Update issue 2 deployment report
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/upsert_issue_comment.py \
+            --repository "${GITHUB_REPOSITORY}" \
+            --issue 2 \
+            --body-file /tmp/pages-report.md \
+            --marker '<!-- tessn-pages-verification -->' \
+            --open-only
+
+      - name: Fail when deployed verification fails
+        if: ${{ steps.verify.outcome != 'success' }}
+        run: exit 1
